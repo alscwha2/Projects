@@ -1,0 +1,40 @@
+﻿Home Address Grammar:
+
+
+Address = Name, Street, City, State, Zip;
+Name = Name-Part, [Letter, “.”], Name-Part, [Name-Suffix];
+Name-Part = Letter, {Letter};
+Name- Suffix = “Jr.” | “Sr.” | roman-numeral;
+roman-numeral = roman-numeral-part, {roman-numeral-part};
+Letter = “a” | “b” | … | “z” | ‘“A” | “B” | … | “Z”;
+roman-numeral-part = “I” | “V” | “X” | “L” | “C” | “D” | “M”;
+Street = Street-Number, Street-Name;
+Street-Number = digit, {digit};
+digit = “0” | “1” | … | “9”;
+Street-Name = Name-Part, Street-Type;
+Street-Type = “Ave.” | “St.” | “Ct.” | “Blvd.” | “Dr.”;
+City = Name-Part;
+State = Name-Part, [Name-Part] | Letter, “.”, Letter, “.”;
+Zip = 5*digit, [“-”, 4*digit];
+
+
+Ahron’s Wardrobe Grammar:
+
+
+Outfit = Shabbos-Clothes | Regular-Clothes;
+Shabbos-Clothes = Basics, Suit, Dress-Shirt, Dress-Shoes, Tie;
+Regular-Clothes = Basics, School-Shirt, School-Pants, Weekday-Shoes;
+Basics = Underwear, Undershirt, Socks, Tzitzis, Kippa, Glasses;
+Suit = “New Suit-Lady Suit” | “Old suit”;
+Dress-Shirt = “White Charles Tyrwhitt twill weave french cuff” | “White Kirkland” | “White Stafford”;
+Dress-Shoes = “newish rockports that are already falling apart” | “old rockports that are really falling apart”;
+Tie = “Blue tie” | “Blue tie with flowers” | “tealish green tie” | “new pink tie” | “old warped pink tie” | “silk tie with elephants that Uncle Joel bought for Dad in Singapore”;
+School-Shirt = “Blue Stafford” | “Grey Stafford” | “That thick blue and green striped shirt”;
+School-Pants = “Black khakis”;
+Weekday-Shoes = “Brown Rockport waterproof walking-shoes” | “green Nike sneakers”;
+Underwear = “Kirkland”;
+Undershirt = “Kirkland undershirt” | “Jockey undershirt”;
+Socks = “grey socks” | “black socks” | “blue socks”;
+Tzitzis = “The one pair of tzitzis that I wear” | “that other pair of tzitzis that has been sitting in my drawer disassembled for the past three(ish) years that I haven’t gotten to tying yet”;
+Kippa = “regular black srugie” | “New black srugie that I haven’t started wearing yet” | “YU chabbad club kippa that I wear when I exercise” | “the velvet kippa that Jake Perlow gave to me when I visited Ner Yisroel for a week so that I can look more Yeshivish and fit in”;
+Glasses = “black Nike reading glasses”;

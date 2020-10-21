@@ -1,0 +1,15 @@
+1 - do the math
+	n/2+1 different combinations of 1 and 2 steps
+	for each of those, place the smaller one in the gaps between the bigger one
+		that is a combination problem, i.e. how many ways are there to seat all of
+		these kind of steps in the gaps between this other kind of steps
+
+2 - recursion: p(i) is the set of all possible paths for i
+	p(i)=
+		get p(i-1)
+		iterate through 
+			iterate through
+				place stair in every possible gap
+				anywhere where there is one stair
+					turn it to double
+					add to set

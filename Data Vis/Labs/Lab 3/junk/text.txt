@@ -1,0 +1,14 @@
+120 0,0s
+Anxiety: {
+	White: 0-4
+	Yellow: 5-9
+	Orange: 10-14
+	Red: 15-21
+}
+Depression: {
+	White: 0-4
+	Yellow: 5-9
+	Orange: 10-14
+	Red: 15-19
+	Maroon: 20-27
+}

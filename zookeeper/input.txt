@@ -1,0 +1,51 @@
+# #############################################################################################
+# #############################################################################################
+#
+# This is a file to input commands for the client to read
+#
+# Any line that begins with a "#" is a comment and will be skipped by the command parsing
+# Blank lines will also be skipped. Make sure that they are completely blank, no spaces or tabs
+#
+# SYNTAX: <COMMAND>SPACE<ARG1>SPACE<ARG2>
+# 	Commands: INSERT DELETE RETRIEVE COMPUTE
+#		INSERT: ARG1=key ARG2=BigDecimal value
+#		DELETE: ARG1=key
+#		RETRIEVE: ARG1=key
+#		COMPUTE: ARG1=operator ARG2=operands
+#			operator: * / - + one character long
+#			operands: <KEY1>,<KEY2>,<KEY3>,....
+#				Make sure that there are no spaces in between the operands!!!! Only a comma
+#				Can safely use same operand twice in one COMPUTE command.
+# 
+# NOTE: Division with BigDecimals starts breaking if the result is non-terminating.
+#			Use easy division commands, like 5/2 or 100/4. I tried 20.5/100.2 and it broke
+#
+#
+# DO NOT USE ";" or "." or "," or " "!!!!!!!
+#
+# EVERYTHING IS CASE SENSITIVE
+#
+# No typos
+#
+# ############################################################################################
+# ############################################################################################
+
+
+INSERT TWO 2
+INSERT FIVE 5
+INSERT SECONDFIVE 5
+INSERT SECONDTWO 2
+INSERT ONE 1
+INSERT SECONDONE 1
+INSERT THIRDONE 1
+INSERT FOURTHONE 1
+INSERT FIFTHONE 1
+INSERT THREE 3
+INSERT FOUR 4
+INSERT TEN 10
+INSERT T9 39
+INSERT T6THOUS 36000
+COMPUTE + TWO,FIVE,SECONDFIVE,THREE,SECONDTWO,ONE,SECONDONE,THIRDONE,FOURTHONE,FIFTHONE,THREE,FOUR,TEN
+COMPUTE - T9,TWO,FIVE,SECONDFIVE,THREE,SECONDTWO,ONE,SECONDONE,THIRDONE,FOURTHONE,FIFTHONE,THREE,FOUR,TEN
+COMPUTE * TWO,FIVE,SECONDFIVE,THREE,SECONDTWO,ONE,SECONDONE,THIRDONE,FOURTHONE,FIFTHONE,THREE,FOUR,TEN
+COMPUTE / T6THOUS,TWO,FIVE,SECONDFIVE,THREE,SECONDTWO,ONE,SECONDONE,THIRDONE,FOURTHONE,FIFTHONE,THREE,FOUR,TEN

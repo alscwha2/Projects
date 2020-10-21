@@ -1,0 +1,109 @@
+/create table. WORKS
+create table t1 (c1 int, c2 boolean, c3 varchar(4), c4 decimal(1,2), primary key (c1));
+/create table with same name as existing table. DOESN'T WORK
+create table t1 (d1 int, c4 boolean, g8 varchar(5), v8 decimal(1,4), primary key (d1));
+/create table where primary key has a default. DOESN'T WORK
+create table t2 (c1 int default -1, c2 boolean, c3 varchar(4), c4 decimal(1,2), primary key (c1));
+
+/create table with bad defaults. the next few DON'T WORK
+create table t2 (c1 int, c2 boolean, c3 varchar(4), c4 decimal(1,2) default 12, primary key (c1));
+create table t2 (c1 int, c2 boolean, c3 varchar(4), c4 decimal(1,2) default 1.234, primary key (c1));
+create table t2 (c1 int, c2 boolean, c3 varchar(4) default 'winter', c4 decimal(1,2), primary key (c1));
+create table t2 (c1 int, c2 boolean default 'correct', c3 varchar(4), c4 decimal(1,2), primary key (c1));
+create table t2 (c1 int default -1.1, c2 boolean, c3 varchar(4), c4 decimal(1,2), primary key (c2));
+create table t2 (c1 int default 'haphazard', c2 boolean, c3 varchar(4), c4 decimal(1,2), primary key (c2));
+/
+/create table with good defaults. WORKS
+create table t2 (c1 int unique, c2 boolean default 'trUe', c3 varchar(4) unique default 'Fall', c4 decimal (1,2) default 0.00, primary key (c1))
+/
+/create index. WORKS
+create index i1 on t1 (c2)
+/
+/the following will try to make indices for columns that already have indices. DOESN'T WORK
+create index i1 on t1 (c1)
+create index i1 on t1 (c2)
+/
+/the following inserts WORK
+/these also demonstrate the default values work
+insert into t2 (c1, c4) values (1, 1.11)
+insert into t2 (c1, c2, c3, c4) values (2, 'true', 'froo', 1.21)
+insert into t2 (c1, c2, c3, c4) values (-3, 'false', 'chol', 1.23)
+insert into t1 (c1, c3, c4) values (11, 'one', 5.67)
+insert into t1 (c1, c2, c3, c4) values (55, 'true', 'two', 9)
+insert into t1 (c1, c2, c3, c4) values (653, 'false', 'thre', 0.09)
+insert into t1 (c1, c2, c3, c4) values (861, 'true', 'four', 1.23)
+insert into t1 (c1, c2, c3, c4) values (1000, 'false', 'five', 8.88)
+/
+/the following inserts violate unique. DON'T WORK
+insert into t2 (c1) values (1)
+insert into t2 (c1, c3) values (17, 'froo')
+insert into t2 (c1, c3) values (17, 'Fall')
+insert into t2 (c1, c3, c4) values (10, 'aaaa', 7.35)
+insert into t2 (c1, c3, c4) values (12, 'aaab', 8.42)
+insert into t2 (c1, c3, c4) values (15, 'aaac', 4.87)
+insert into t2 (c1, c3, c4) values (23, 'aaba', 3.0)
+insert into t2 (c1, c3, c4) values (45, 'baaa', 9.0)
+insert into t2 (c1, c3, c4) values (90, 'bbaa', 5.43)
+/
+/the following inserts violate notnull (c1 is primary key). DON'T WORK
+insert into t2 (c3) values ('four')
+/
+select * from t2
+select COUNT(c1) from t2
+delete from t2 where c4 = 9.0
+select * from t2
+select COUNT(c1) from t2
+delete from t2 where c4 < 5
+select * from t2
+select COUNT(c1) from t2
+/
+/select rows
+select * from t2 where c3 < 'aaba'
+select * from t2 where c3 > 'aaba'
+select c1 from t2
+select c4, c3 from t2
+select * from t2
+/
+/select functions
+select MAX(c4), MIN(c3), COUNT(DISTINCT c2), COUNT(DISTINCT c1) from t2
+select SUM(c4), SUM(c1) from t2
+select AVG(c4), AVG(c1) from t2
+select SUM(c2) from t2
+select SUM(c3) from t2
+select AVG(c2) from t2
+select AVG(c3) from t2
+select MAX (c2), MAX(c3) from t2
+select MIN (c2), MIN(c3) from t2
+/
+/joins
+select * from t2, t2
+select * from t2, t2, t2
+select * from t1, t2
+select * from t1, t2 where t1.c2 = t2.c2
+/
+/updates
+select * from t2
+update t2 set c2 = 'false' where c1 < 20
+select * from t2
+update t2 set c4 = 0.00 where c3 > 'aaba'
+select * from t2
+update t2 set c3 = 'end' where c4 <> 8.42
+select * from t2
+update t2 set c2 = false
+update t2 set c1 = 'golf'
+update t2 set c3 = 1.2
+update t2 set c1 = 100 where c1 = 4
+/
+/
+/
+/
+select * from t1
+select * from t2
+select * from t1, t2
+create table t3 (c1 int, primary key (c1))
+insert into t3 (c1) values (1)
+insert into t3 (c1) values (2)
+insert into t3 (c1) values (3)
+select * from t3
+select * from t2,t3
+select * from t1, t2 where t1.c2 = t2.c2

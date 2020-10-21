@@ -1,0 +1,82 @@
+4/10: see errors below + 1 point off for initial error
+
+=== take 2
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building IndexPQ 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ IndexPQ ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/avraham/class_code/2545/IndexMinPQ/AaronSchwartz-Messing/IntroToAlgorithms/homework/IndexMinPQ/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ IndexPQ ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ IndexPQ ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/avraham/class_code/2545/IndexMinPQ/AaronSchwartz-Messing/IntroToAlgorithms/homework/IndexMinPQ/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ IndexPQ ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ IndexPQ ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Test cases to execute : 1
+Running edu.yc.oats.algs.test.IndexMinPQTest
+Execution Started : verifyDeleteMinWorks
+Execution Finished : verifyDeleteMinWorks
+Execution Started : testMinimumness
+Execution Failure : java.lang.AssertionError: Problem With minIndex() expected:<3> but was:<0>
+Execution Finished : testMinimumness
+Execution Started : afterInitialPQConstruction
+Execution Failure : java.lang.AssertionError: Mismatch on keys: array lengths differed, expected.length=10 actual.length=11
+Execution Finished : afterInitialPQConstruction
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec <<< FAILURE! - in edu.yc.oats.algs.test.IndexMinPQTest
+testMinimumness(edu.yc.oats.algs.test.IndexMinPQTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: Problem With minIndex() expected:<3> but was:<0>
+	at edu.yc.oats.algs.test.IndexMinPQTest.testMinimumness(IndexMinPQTest.java:81)
+
+afterInitialPQConstruction(edu.yc.oats.algs.test.IndexMinPQTest)  Time elapsed: 0.046 sec  <<< FAILURE!
+java.lang.AssertionError: Mismatch on keys: array lengths differed, expected.length=10 actual.length=11
+	at edu.yc.oats.algs.test.IndexMinPQTest.afterInitialPQConstruction(IndexMinPQTest.java:59)
+
+Test cases executed : 3
+
+Results :
+
+Failed tests: 
+  IndexMinPQTest.afterInitialPQConstruction:59 Mismatch on keys: array lengths differed, expected.length=10 actual.length=11
+  IndexMinPQTest.testMinimumness:81 Problem With minIndex() expected:<3> but was:<0>
+
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.530 s
+[INFO] Finished at: 2017-12-27T19:06:39-05:00
+[INFO] Final Memory: 12M/309M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project IndexPQ: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /Users/avraham/class_code/2545/IndexMinPQ/AaronSchwartz-Messing/IntroToAlgorithms/homework/IndexMinPQ/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+=== take 1
+
+*********************** AaronSchwartz-Messing ****************************
+git url is AaronSchwartz-Messing.git
+Cloning https://drleff:Hadoop4github@github.com/Yeshiva-University-CS/AaronSchwartz-Messing.git
+Error: Could not find directory /Users/avraham/class_code/2545/2017-12-2711468/AaronSchwartz-Messing/IntroToAlgorithms/homework/IndexMinPQ not found

@@ -1,0 +1,43 @@
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>javac JavaFunctional\FileInfoUtility.java 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>ECHO "********JavaFunctional********" 
+"********JavaFunctional********"
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>java -cp JavaFunctional FileInfoUtility grep disk output.txt "|" wc  1>csv\JavaFunctional.csv 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>javac JavaOO\*.java 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>ECHO "********JavaOO********" 
+"********JavaOO********"
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>java -cp JavaOO FileInfoUtility grep disk output.txt "|" wc  1>csv\JavaOO.csv 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>gcc CImperative\FileInfoUtility.c -o CImperative\FileInfoUtility  
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>ECHO "********CImperative********" 
+"********CImperative********"
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>CImperative\FileInfoUtility grep disk output.txt "|" wc  1>csv\CImperative.csv 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>gcc CFunctional\FileInfoUtility.c -o CFunctional\FileInfoUtility  
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>ECHO "********CFunctional********" 
+"********CFunctional********"
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>CFunctional\FileInfoUtility grep disk output.txt "|" wc  1>csv\CFunctional.csv 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>ECHO "********PythonOO********" 
+"********PythonOO********"
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>PythonOO\FileInfoUtility.py grep disk output.txt "|" wc  1>csv\PythonOO.csv 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>ECHO "********PythonFunctional********" 
+"********PythonFunctional********"
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>PythonFunctional\FileInfoUtility.py grep disk output.txt "|" wc  1>csv\PythonFunctional.csv 
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>ECHO "********JSFunctional********" 
+"********JSFunctional********"
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject>node JSFunctional\FileInfoUtility.js  grep disk output.txt "|" wc  1>csv\JSFunctional.csv 

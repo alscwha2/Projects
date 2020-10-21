@@ -1,0 +1,206 @@
+redirected stderr to output.txt file
+created carsOnDisk file
+buffer: 0x0, buffer initialized: 0x600092440
+ addCar(): id: 0
+writeCarToDisk(): id: 0
+Disk: {0, }
+ addCar(): id: 1
+writeCarToDisk(): id: 1
+Disk: {0, 1, }
+ addCar(): id: 2
+writeCarToDisk(): id: 2
+Disk: {0, 1, 2, }
+ addCar(): id: 3
+writeCarToDisk(): id: 3
+Disk: {0, 1, 2, 3, }
+ addCar(): id: 4
+writeCarToDisk(): id: 4
+Disk: {0, 1, 2, 3, 4, }
+ addCar(): id: 5
+writeCarToDisk(): id: 5
+Disk: {0, 1, 2, 3, 4, 5, }
+ addCar(): id: 6
+writeCarToDisk(): id: 6
+Disk: {0, 1, 2, 3, 4, 5, 6, }
+ addCar(): id: 7
+writeCarToDisk(): id: 7
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, }
+ addCar(): id: 8
+writeCarToDisk(): id: 8
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, }
+ addCar(): id: 9
+writeCarToDisk(): id: 9
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, }
+getAllCarsOnDisk(): numberOfCarsOnDisk: 10
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, }
+ setMaxMemory(200)
+previous max_memory: 0 previous MAX_CARS_IN_MEMORY: 0, CAR_SIZE: 40
+initilizing carsInMemory array: previous: 0x0 new: 0x6000a2880
+ loadCarsFromDisk(): number of cars to load: 5
+previous: Memory:{}
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, }
+new:
+Memory:{5, 6, 7, 8, 9, }
+Disk: {0, 1, 2, 3, 4, }
+new max_memory: 200
+new MAX_CARS_IN_MEMORY: 5
+getAllCarsOnDisk(): numberOfCarsOnDisk: 5
+Disk: {0, 1, 2, 3, 4, }
+ addCar(): id: 10
+moveLRUtoDisk(): id: 5
+writeCarToDisk(): id: 5
+New Memory:{6, 7, 8, 9, }
+New Disk: {0, 1, 2, 3, 4, 5, }
+writeCarToMemory(): id: 10
+Memory:{6, 7, 8, 9, 10, }
+Disk: {0, 1, 2, 3, 4, 5, }
+ addCar(): id: 11
+moveLRUtoDisk(): id: 6
+writeCarToDisk(): id: 6
+New Memory:{7, 8, 9, 10, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, }
+writeCarToMemory(): id: 11
+Memory:{7, 8, 9, 10, 11, }
+Disk: {0, 1, 2, 3, 4, 5, 6, }
+ addCar(): id: 12
+moveLRUtoDisk(): id: 7
+writeCarToDisk(): id: 7
+New Memory:{8, 9, 10, 11, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, }
+writeCarToMemory(): id: 12
+Memory:{8, 9, 10, 11, 12, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, }
+ addCar(): id: 13
+moveLRUtoDisk(): id: 8
+writeCarToDisk(): id: 8
+New Memory:{9, 10, 11, 12, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, }
+writeCarToMemory(): id: 13
+Memory:{9, 10, 11, 12, 13, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, }
+ addCar(): id: 14
+moveLRUtoDisk(): id: 9
+writeCarToDisk(): id: 9
+New Memory:{10, 11, 12, 13, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, }
+writeCarToMemory(): id: 14
+Memory:{10, 11, 12, 13, 14, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, }
+ addCar(): id: 15
+moveLRUtoDisk(): id: 10
+writeCarToDisk(): id: 10
+New Memory:{11, 12, 13, 14, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, }
+writeCarToMemory(): id: 15
+Memory:{11, 12, 13, 14, 15, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, }
+ addCar(): id: 16
+moveLRUtoDisk(): id: 11
+writeCarToDisk(): id: 11
+New Memory:{12, 13, 14, 15, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, }
+writeCarToMemory(): id: 16
+Memory:{12, 13, 14, 15, 16, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, }
+ addCar(): id: 17
+moveLRUtoDisk(): id: 12
+writeCarToDisk(): id: 12
+New Memory:{13, 14, 15, 16, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, }
+writeCarToMemory(): id: 17
+Memory:{13, 14, 15, 16, 17, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, }
+ addCar(): id: 18
+moveLRUtoDisk(): id: 13
+writeCarToDisk(): id: 13
+New Memory:{14, 15, 16, 17, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, }
+writeCarToMemory(): id: 18
+Memory:{14, 15, 16, 17, 18, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, }
+ addCar(): id: 19
+moveLRUtoDisk(): id: 14
+writeCarToDisk(): id: 14
+New Memory:{15, 16, 17, 18, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, }
+writeCarToMemory(): id: 19
+Memory:{15, 16, 17, 18, 19, }
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, }
+getAllCarsOnDisk(): numberOfCarsOnDisk: 15
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, }
+ setMaxMemory(80)
+previous max_memory: 200 previous MAX_CARS_IN_MEMORY: 5, CAR_SIZE: 40
+shrinking array size
+moveLRUtoDisk(): id: 15
+writeCarToDisk(): id: 15
+New Memory:{16, 17, 18, 19, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, }
+moveLRUtoDisk(): id: 16
+writeCarToDisk(): id: 16
+New Memory:{17, 18, 19, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, }
+moveLRUtoDisk(): id: 17
+writeCarToDisk(): id: 17
+New Memory:{18, 19, }
+New Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, }
+new max_memory: 80
+new MAX_CARS_IN_MEMORY: 2
+getAllCarsOnDisk(): numberOfCarsOnDisk: 18
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, }
+fetching car from memory: ID: 18
+car found in memory. setting as MRU
+getAllCarsOnDisk(): numberOfCarsOnDisk: 18
+Disk: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, }
+fetching car from memory: ID: 5
+car ID: 5 not found in memory
+fetching car from disk: ID: 5
+car found on disk
+deleteCurrentCarFromDisk(): deleting car from disk
+moveLRUtoDisk(): id: 19
+writeCarToDisk(): id: 19
+New Memory:{18, }
+New Disk: {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+writeCarToMemory(): id: 5
+getAllCarsOnDisk(): numberOfCarsOnDisk: 18
+Disk: {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+fetching car from memory: ID: 18
+car found in memory. setting as MRU
+fetching car from memory: ID: 18
+car found in memory. setting as MRU
+modifyCarById(18):
+previous: {make, model, 6, 8989, 18}
+new: {NewMake, NewModel, 1, 1, 18}
+fetching car from memory: ID: 18
+car found in memory. setting as MRU
+getAllCarsOnDisk(): numberOfCarsOnDisk: 18
+Disk: {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+fetching car from memory: ID: 6
+car ID: 6 not found in memory
+fetching car from disk: ID: 6
+car found on disk
+deleteCurrentCarFromDisk(): deleting car from disk
+moveLRUtoDisk(): id: 5
+writeCarToDisk(): id: 5
+New Memory:{18, }
+New Disk: {0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 5, }
+writeCarToMemory(): id: 6
+modifyCarById(6):
+previous: {make, model, 6, 8989, 6}
+new: {NewMake, NewModel, 1, 1, 6}
+getAllCarsOnDisk(): numberOfCarsOnDisk: 18
+Disk: {0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 5, }
+fetching car from memory: ID: 18
+car found in memory. setting as MRU
+ loadCarsFromDisk(): number of cars to load: 1
+previous: Memory:{6, }
+Disk: {0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 5, }
+new:
+Memory:{5, 6, }
+Disk: {0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+delete car ID: 18 from memory
+getAllCarsOnDisk(): numberOfCarsOnDisk: 17
+Disk: {0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+fetching car from memory: ID: 2
+deleteCurrentCarFromDisk(): deleting car from disk
+getAllCarsOnDisk(): numberOfCarsOnDisk: 16
+Disk: {0, 1, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }

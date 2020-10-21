@@ -1,0 +1,1 @@
+Preferably read the docx one, because the links work on that one. The pdf was included in case the docx didn't work.

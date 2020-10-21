@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DSC 530 Assignment #2</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.15/d3.min.js" charset="utf-8" type="text/javascript"></script>
+  <script src="campaign_finance.js" type="text/javascript"></script>
+  <style type="text/css">
+  	.axis path,
+  	.axis line{
+  		fill: none;
+  		stroke: grey;
+  		stroke-dasharray: dotted;
+  		stroke-width: 3px;
+  	}
+  	.axis text{
+  		font-family: sans-serif;
+  		font-size: 11px;
+  	}
+
+  	.tx {
+  		stroke: black;
+  	}
+  </style>
+</head>
+<body>
+  <!-- HTML for Parts 0-2 GO HERE-->
+  <h2>Aaron Schwartz-Messing <br>
+  Data Visualization (COM3571) <br>
+  Assignment 2</h2>
+
+  <!-- HTML for Part 1-->
+  <script type="text/javascript">
+    var w = 600.0;
+    var h = 650.0;
+
+    var margin = {top: 30.0, right: 100.0, bottom: 65.0, left: 85.0};
+
+    var netHeight = h - margin.bottom - margin.top;
+    var netWidth = w - margin.left - margin.right;
+    var barsbottom = netHeight + margin.top;
+
+    var mostMoney = d3.max(cands, function(d) {return parseFloat(d.q4);});
+    //to determine the height of each bar
+    var getHeight = function(d) {return netHeight * (parseFloat(d.q4) / mostMoney);};
+
+  	//the svg
+  	var temp = 0;
+  	var svg = d3.select("body")
+  		.append("svg")
+  		.attr("width", w)
+  		.attr("height", h);
+  	
+  	//the bars
+  	var bars = svg.selectAll()
+  		.data(cands)
+  		.enter()
+  		.append("rect")
+  		.attr("x", function(d, i) {return margin.left + i * (netWidth / cands.length);})
+      .attr("width", netWidth / cands.length - 1)
+  		.attr("y", function(d) {return barsbottom - getHeight(d);})
+      .attr("height", function(d) {return getHeight(d);})
+  		.style("fill", function(d) {
+  			var color = "green";
+  			if (d.Party === "Democratic") color = "blue";
+  		  if (d.Party === "Republican") color = "red";
+  			return color;
+  		});
+
+    //the labels
+    var labelX = function (d, i) {
+      var barBegins = margin.left + i * (netWidth / cands.length);
+      var barWidth = netWidth / cands.length - 1;
+      return barBegins + (barWidth / 2);
+    };
+    var labelY = h - (margin.bottom / 2);
+
+    svg.selectAll("text")
+      .data(cands)
+      .enter()
+      .append("text")
+      .text(function(d) {return d.Candidate.split(" ")[1];})
+      .attr("x", function(d, i) {return labelX(d, i);})
+      .attr("y", labelY)
+      .attr("fill", function(d) {
+        var color = "green";
+        if (d.Party === "Democratic") color = "blue";
+        if (d.Party === "Republican") color = "red";
+        return color;
+      })
+      .attr("font-family", "sans-serif")
+      .attr("text-anchor", "middle")
+      .attr("transform", function(d, i) {return "rotate(45, " + labelX(d, i) + ", " + labelY + ")";});
+
+  	//the y axis
+  	var yAxisScale = d3.scale.linear()
+  		.domain([0, mostMoney])
+  		.range([barsbottom, margin.top]);
+
+  	var yaxis = d3.svg.axis()
+  		.scale(yAxisScale)
+  		.orient("left")
+  		.ticks(10);
+
+  	svg.append("g")
+  		.attr("class", "axis")
+ 	  	.call(yaxis)
+ 		  .attr("transform", "translate(" + (margin.left - 3) + ", 0)");
+
+
+
+
+
+    //js for Part 2
+    //js for Part 2
+    //js for Part 2
+    //js for Part 2
+    var pacMoney = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+    for (var i = 0; i < 15; i++) {
+      var pac = pacs[i];
+      if (pac.Candidate === "Jeb Bush") {pacMoney[0] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Ben Carson") {pacMoney[1] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Ted Cruz") {pacMoney[2] += parseFloat(pac.q4)};
+      if (pac.Candidate === "John Kasich") {pacMoney[3] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Marco Rubio") {pacMoney[4] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Donald Trump") {pacMoney[5] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Hillary Clinton") {pacMoney[6] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Bernie Sanders") {pacMoney[7] += parseFloat(pac.q4)};
+    }
+    var totalMoney = []; for (var i = 0; i < 8; i++) totalMoney.push(pacMoney[i] + parseFloat(cands[i].q4));
+
+    mostMoney = d3.max(totalMoney, function(d) {return parseFloat(d);});
+    //to determine the height of each bar
+    getHeight = function(d) {return netHeight * (parseFloat(d) / mostMoney);};
+
+    var part2svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    //q4 bars
+    //this array is in order to store the y coordinates of the cands.q4 bars in order to know
+    // from where to create the bars for the pac money. This array will be filled when these values
+    // are calculated when creating the bars for cands.q4
+    var barsYcoordinate = [];
+
+    //the money from cands.q4
+    bars = part2svg.selectAll("rect")
+      .data(cands)
+      .enter()
+      .append("rect")
+      .attr("x", function(d, i) {return margin.left + i * (netWidth / cands.length);})
+      .attr("width", netWidth / cands.length - 1)
+      .attr("y", function(d, i) {
+        var coordinate = barsbottom - getHeight(d.q4)
+        barsYcoordinate.push(coordinate);
+        return coordinate;
+      })
+      .attr("height", function(d) {return getHeight(d.q4);})
+      .style("fill", function(d) {
+        var color = "green";
+        if (d.Party === "Democratic") color = "blue";
+        if (d.Party === "Republican") color = "red";
+        return color;
+      });
+
+    //pacs bars
+    part2svg.selectAll()
+      .data(pacMoney)
+      .enter()
+      .append("rect")
+      .attr("x", function(d, i) {return margin.left + i * (netWidth / cands.length);})
+      .attr("width", netWidth / cands.length - 1)
+      .attr("y", function(d, i) {return barsYcoordinate[i] - getHeight(d);})
+      .attr("height", function(d) {return getHeight(d);})
+      .style("fill", function(d, i) {
+        var color = "green";
+        if (cands[i].Party === "Democratic") color = "rgba(0, 0, 255, 0.3)";
+        if (cands[i].Party === "Republican") color = "rgba(255, 0, 0, 0.3)";
+        return color;
+      });
+
+    //The labels
+    part2svg.selectAll("text")
+      .data(cands)
+      .enter()
+      .append("text")
+      .text(function(d) {return d.Candidate.split(" ")[1];})
+      .attr("x", function(d, i) {return labelX(d, i);})
+      .attr("y", labelY)
+      .attr("fill", function(d) {
+        var color = "green";
+        if (d.Party === "Democratic") color = "blue";
+        if (d.Party === "Republican") color = "red";
+        return color;
+      })
+      .attr("font-family", "sans-serif")
+      .attr("text-anchor", "middle")
+      .attr("transform", function(d, i) {return "rotate(45, " + labelX(d, i) + ", " + labelY + ")";});
+
+    //the y axis
+    yAxisScale = d3.scale.linear()
+      .domain([0, mostMoney])
+      .range([barsbottom, margin.top]);
+
+    yaxis = d3.svg.axis()
+      .scale(yAxisScale)
+      .orient("left")
+      .ticks(10);
+
+    part2svg.append("g")
+      .attr("class", "axis")
+      .call(yaxis)
+      .attr("transform", "translate(" + (margin.left - 3) + ", 0)");
+
+  </script>
+
+  <div id="myDiv"></div>
+  <script>
+    var q4 = []; for (var i = 0; i < 8; i++) q4.push(cands[i].q4);
+    var pacMoney = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+    for (var i = 0; i < 15; i++) {
+      var pac = pacs[i];
+      if (pac.Candidate === "Jeb Bush") {pacMoney[0] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Ben Carson") {pacMoney[1] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Ted Cruz") {pacMoney[2] += parseFloat(pac.q4)};
+      if (pac.Candidate === "John Kasich") {pacMoney[3] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Marco Rubio") {pacMoney[4] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Donald Trump") {pacMoney[5] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Hillary Clinton") {pacMoney[6] += parseFloat(pac.q4)};
+      if (pac.Candidate === "Bernie Sanders") {pacMoney[7] += parseFloat(pac.q4)};
+    }
+
+    var trace1 = {
+    x: ['Bush', 'Carson', 'Cruz', 'Kasich', 'Rubio', 'Trump', 'Clinton', "Sanders"],
+    y: q4,
+    name: 'q4',
+    type: 'bar',
+    marker:{
+        color: ["red", "red", "red", "red", "red", "red", "blue", "blue"]
+      }
+    };
+
+    var trace2 = {
+    x: ['Bush', 'Carson', 'Cruz', 'Kasich', 'Rubio', 'Trump', 'Clinton', "Sanders"],
+    y: pacMoney,
+    name: 'PAC',
+    type: 'bar',
+    marker:{color: ['rgba(255,0,0,0.3)', 'rgba(255,0,0,0.3)','rgba(255,0,0,0.3)','rgba(255,0,0,0.3)','rgba(255,0,0,0.3)','rgba(255,0,0,0.3)','rgba(0,0,255,0.3)','rgba(0,0,255,0.3)']}
+    };
+
+    var data = [trace1, trace2];
+
+    var layout = {
+      barmode: 'stack',
+      height: 750,
+      width: 600,
+      xaxis: {tickangle: 45},
+      showlegend: false,
+      yaxis: {
+          autotick: true,
+          ticks: 'outside',
+          ticklen: 6,
+          tickwidth: 2,
+          showline: true,
+          tickcolor: '#939393'
+        },
+      bargap: 0.02
+    };
+
+    Plotly.newPlot('myDiv', data, layout);
+  </script>
+
+  <!-- HTML for Part 3 -->
+  <h1>Donations (Mid-2015 vs. End-2015)</h1>
+  
+  <div id="scatter"></div>
+
+  <!-- Make sure everything is loaded before defining JavaScript. -->
+  <script type="text/javascript">
+    // The createInitialScatterplot function is defined in campaign_finance.js
+    // Do not modify it.
+    // This should be called **before** all other code for Part 3.
+    
+    createInitialScatterplot();
+
+    //create new arrays dividing the republican and democratic data
+    var repubs = []; for (var i = 0; i < 6; i++) repubs.push(cands[i]);
+    var democs = []; for (var i = 6; i < 8; i++) democs.push(cands[i]);
+    
+    var svg = d3.select("#scatter").select("svg");
+    var g = svg.select("g");
+    var republicans = g.selectAll("circle.republican").data(repubs);
+    var democrats = g.selectAll("circle.democratic").data(democs);
+
+    //this info was copied and pasted from the js file
+    var margin = {top: 20, right: 20, bottom: 40, left: 40};
+    var width = 400 - margin.left - margin.right;
+    var height = 400 - margin.top - margin.bottom;
+
+    //max q2 and q4 values
+    var maxq2 = d3.max(cands, function(d) {return isNaN(parseFloat(d.q2)) ? 0.0 : parseFloat(d.q2);});
+    var maxq4 = d3.max(cands, function(d) {return parseFloat(d.q4);});
+
+    //these functions determine the correct coordinates for the circles
+    var circleY = function(d) {return height - (height * (parseFloat(d.q4) / maxq4));}; 
+    var circleX = function(d) {
+      var q2 = isNaN(parseFloat(d.q2)) ? 0.0 : parseFloat(d.q2);
+      return width * (q2 / maxq2);
+    };
+
+    //old red circles
+    republicans
+      .transition()
+      .duration(3000)
+      .attr("cx", function(d) {return circleX(d);})
+      .attr("cy", function(d) {return circleY(d);});
+
+    //new red circles
+    republicans
+      .enter()
+      .append("circle")
+      .attr("r", 5) 
+      .attr("class", "republican")
+      .attr("fill", "red")
+      .attr("cx", function(d) {return circleX(d);})
+      .attr("cy", function(d) {return circleY(d);})
+      .style("opacity", 0.0)
+      .transition()
+      .duration(3000)
+      .style("opacity", 1.0);
+    
+    //the fading democrats
+    democrats
+      .exit()
+      .style("opacity", 1.0)
+      .transition()
+      .duration(3000)
+      .style("opacity", 0.0)
+      .remove();
+
+    //the moving democrats
+    democrats
+      .transition()
+      .duration(3000)
+      .attr("cx", function(d) {return circleX(d);})
+      .attr("cy", function(d) {return circleY(d);});
+
+    //the x axis
+    var xscale = d3.scale.linear()
+      .domain([0, maxq2 / 10000000])
+      .range([0, width]);
+    var xaxis = d3.svg.axis()
+      .scale(xscale)
+      .orient("bottom")
+      .ticks(10);
+    svg.append("g")
+      .attr("transform", "translate(40, 360)")
+      .attr("class", "axis")
+      .call(xaxis);
+    svg.append("text")
+      .text("Mid-2015 Dollars (in 10 millions)")
+      .attr("text-anchor", "middle")
+      .attr("x", 200)
+      .attr("y", 400);
+    
+    //the y axis
+    var yscale = d3.scale.linear()
+      .domain([0, maxq4 / 10000000])
+      .range([height, 0]);
+    var yaxis = d3.svg.axis()
+      .scale(yscale)
+      .orient("left")
+      .ticks(10);
+    svg.append("g")
+      .attr("transform", "translate(40, 20)")
+      .attr("class", "axis")
+      .call(yaxis);
+    svg.append("text")
+      .text("End-2015 Dollars (in 10 millions)")
+      .attr("text-anchor", "middle")
+      .attr("transform", "rotate(270)")
+      .attr("x", -200)
+      .attr("y", 20);
+  </script>
+</body>
+</html>

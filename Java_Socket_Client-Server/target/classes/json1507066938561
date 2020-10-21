@@ -1,0 +1,207 @@
+
+{
+	"COM": [
+		{
+			"crn":78790,
+			"name":"Programming for Non-CS majors"
+		},
+		{
+			"crn":77648,
+			"name":"Intro to Computer Science"
+		},
+		{
+			"crn":77608,
+			"name":"Data Structures"
+		},
+		{
+			"crn":77614,
+			"name":"Discrete Structures"
+		},
+		{
+			"crn":77789,
+			"name":"Theory of Computation"
+		},
+		{
+			"crn":78794,
+			"name":"Comp Org \u0026 Assemb Lang Prog"
+		},
+		{
+			"crn":78793,
+			"name":"Algorithms"
+		},
+		{
+			"crn":78788,
+			"name":"Programming Languages"
+		},
+		{
+			"crn":78789,
+			"name":"Intro to Distributed Systems"
+		}
+	],
+	"MAT": [
+		{
+			"crn":79169,
+			"name":"Precalculus"
+		},
+		{
+			"crn":77560,
+			"name":"Problem Seminar I"
+		},
+		{
+			"crn":77676,
+			"name":"Problem Seminar I"
+		},
+		{
+			"crn":77561,
+			"name":"Problem Seminar II "
+		},
+		{
+			"crn":77562,
+			"name":"Problem Seminar III"
+		},
+		{
+			"crn":77563,
+			"name":"Calculus I"
+		},
+		{
+			"crn":78767,
+			"name":"Calculus II"
+		},
+		{
+			"crn":77623,
+			"name":"Discrete Structures"
+		},
+		{
+			"crn":77564,
+			"name":"Multivariable Calculus"
+		},
+		{
+			"crn":77565,
+			"name":"Advanced Calculus I"
+		},
+		{
+			"crn":77613,
+			"name":"Linear Algebra"
+		},
+		{
+			"crn":77566,
+			"name":"Probability Theory"
+		},
+		{
+			"crn":79170,
+			"name":"Differential Equations"
+		},
+		{
+			"crn":79289,
+			"name":"Network Science"
+		},
+		{
+			"crn":79290,
+			"name":"Math for Science \u0026 Engineering"
+		}
+	],
+	"BIO":
+	[
+		{
+			"crn":77549,
+			"name":"Principles Lab"
+		},
+		{
+			"crn":77551,
+			"name":"Principles Lab"
+		},
+		{
+			"crn":77801,
+			"name":"Principles Lab"
+		},
+		{
+			"crn":77552,
+			"name":"Principles Lectures"
+		},
+		{
+			"crn":77553,
+			"name":"Biochemistry Lab"
+		},
+		{
+			"crn":77554,
+			"name":"Biochemistry Lecture"
+		},
+		{
+			"crn":77555,
+			"name":"Cell Structure \u0026 Function"
+		},
+		{
+			"crn":77556,
+			"name":"Cell Biology"
+		},
+		{
+			"crn":77610,
+			"name":"Genetics"
+		},
+		{
+			"crn":78726,
+			"name":"Psychobiology"
+		},
+		{
+			"crn":77593,
+			"name":"Microbiology Lab"
+		},
+		{
+			"crn":79924,
+			"name":"Microbiology Lab"
+		},
+		{
+			"crn":77594,
+			"name":"Microbiology"
+		},
+		{
+			"crn":79282,
+			"name":"Introduction to Public Health"
+		},
+		{
+			"crn":77641,
+			"name":"Research in Biology"
+		},
+		{
+			"crn":78834,
+			"name":"Topics: Intro to Forensic Bio"
+		}
+	]
+}u0026 Engineering"
+		}
+	],
+	"BIO":
+	[
+		{
+			"crn":77549,
+			"name":"Principles Lab"
+		},
+		{
+			"crn":77551,
+			"name":"Principles Lab"
+		},
+		{
+			"crn":77801,
+			"name":"Principles Lab"
+		},
+		{
+			"crn":77552,
+			"name":"Principles Lectures"
+		},
+		{
+			"crn":77553,
+			"name":"Biochemistry Lab"
+		},
+		{
+			"crn":77554,
+			"name":"Biochemistry Lecture"
+		},
+		{
+			"crn":77555,
+			"name":"Cell Structure \u0026 Function"
+		},
+		{
+			"crn":77556,
+			"name":"Cell Biology"
+		},
+	

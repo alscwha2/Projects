@@ -1,0 +1,30 @@
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject\csv\sort>FC sortJSFunctional.csv sortJavaFunctional.csv 
+Comparing files sortJSFunctional.csv and SORTJAVAFUNCTIONAL.CSV
+FC: no differences encountered
+
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject\csv\sort>FC sortJSFunctional.csv sortJavaOO.csv 
+Comparing files sortJSFunctional.csv and SORTJAVAOO.CSV
+FC: no differences encountered
+
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject\csv\sort>FC sortJSFunctional.csv sortPythonFunctional.csv 
+Comparing files sortJSFunctional.csv and SORTPYTHONFUNCTIONAL.CSV
+FC: no differences encountered
+
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject\csv\sort>FC sortJSFunctional.csv sortPythonOO.csv 
+Comparing files sortJSFunctional.csv and SORTPYTHONOO.CSV
+FC: no differences encountered
+
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject\csv\sort>FC sortJSFunctional.csv sortcfunctional.csv 
+Comparing files sortJSFunctional.csv and SORTCFUNCTIONAL.CSV
+FC: no differences encountered
+
+
+C:\Users\Aaron SM\YU stuff\Spring 2019\Programming Languages\FinalProject\csv\sort>FC sortJSFunctional.csv sortcimp.csv 
+Comparing files sortJSFunctional.csv and SORTCIMP.CSV
+FC: no differences encountered
+

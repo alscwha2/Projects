@@ -1,0 +1,121 @@
+ _____________________________________
+|***** testMaxMemoryAndAddCar(): *****|
+|_____________________________________|
+___________________________________________________________
+*** test adding cars before setMaxMemory() has been called:
+amount of memory used: 0
+getNumberOfCarsInMemory(): 0
+getNumberOfCarsOnDisk(): 0
+adding cars: 10
+amount of memory used: 0
+getNumberOfCarsInMemory(): 0
+getNumberOfCarsOnDisk(): 10
+printAllCarsInMemory(): the memory array has not been initialized
+printAllCarsOnDisk():
+ amount = 10
+ {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, }
+_________________________________________________________________
+*** test calling setMaxMemory() with cars already written to disk
+setMaxMemory(200)
+amount of memory used: 200
+getNumberOfCarsInMemory(): 5
+getNumberOfCarsOnDisk(): 5
+printAllCarsInMemory():
+ amount = 5
+ {5, 6, 7, 8, 9, }
+printAllCarsOnDisk():
+ amount = 5
+ {0, 1, 2, 3, 4, }
+_____________________________________
+*** test adding cars with full memory
+adding cars: 10
+amount of memory used: 200
+getNumberOfCarsInMemory(): 5
+getNumberOfCarsOnDisk(): 15
+printAllCarsInMemory():
+ amount = 5
+ {15, 16, 17, 18, 19, }
+printAllCarsOnDisk():
+ amount = 15
+ {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, }
+____________________________
+*** test lowering maxMemory
+setMaxMemory(80)
+amount of memory used: 80
+getNumberOfCarsInMemory(): 2
+getNumberOfCarsOnDisk(): 18
+printAllCarsInMemory():
+ amount = 2
+ {18, 19, }
+printAllCarsOnDisk():
+ amount = 18
+ {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, }
+ _____________________________
+|***** testGetCarById(): *****|
+|_____________________________|
+____________________________
+*** test getting from memory
+testGetCarById(18):
+ {make = make, model = model, year = 6, price = 8989, Id = 18}
+printAllCarsInMemory():
+ amount = 2
+ {19, 18, }
+printAllCarsOnDisk():
+ amount = 18
+ {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, }
+__________________________
+*** test getting from disk
+testGetCarById(5):
+ {make = make, model = model, year = 6, price = 8989, Id = 5}
+printAllCarsInMemory():
+ amount = 2
+ {18, 5, }
+printAllCarsOnDisk():
+ amount = 18
+ {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+ ________________________________
+|***** testModifyCarById(): *****|
+|________________________________|
+_______________________________
+**** test modifying from memory
+modifyCarById(18)
+previous:
+ {make = make, model = model, year = 6, price = 8989, Id = 18}
+new:
+ {make = NewMake, model = NewModel, year = 1, price = 1, Id = 18}
+printAllCarsInMemory():
+ amount = 2
+ {5, 18, }
+printAllCarsOnDisk():
+ amount = 18
+ {0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+____________________________
+*** test modifying from disk
+modifyCarById(6):
+printAllCarsInMemory():
+ amount = 2
+ {18, 6, }
+printAllCarsOnDisk():
+ amount = 18
+ {0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 5, }
+ ________________________________
+|***** testDeleteCarById(): *****|
+|________________________________|
+_________________________________
+*** test deleting car from memory
+deleteCarById(18)
+printAllCarsInMemory():
+ amount = 2
+ {5, 6, }
+printAllCarsOnDisk():
+ amount = 17
+ {0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }
+_______________________________
+*** test deleting car from disk
+deleteCarById(2)
+printAllCarsInMemory():
+ amount = 2
+ {5, 6, }
+printAllCarsOnDisk():
+ amount = 16
+ {0, 1, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, }

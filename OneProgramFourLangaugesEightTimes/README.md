@@ -18,9 +18,6 @@ newdoc.txt is another sample text file.
 
 # Final Project
 
-```
-Due Date: January 1, 2019, 11:59 PM.
-```
 ## Project Overview
 
 Two command line tools that are commonly used on UNIX systems for searching text files are grep and wc. For
@@ -166,5 +163,3 @@ print out the results from each.**
 **Your project must work with JDK 11, nodejs 10.14.*, and Python 3.7.***
 
 **You can assume all 3 of these runtimes is installed on my machine and on the $PATH**
-
-

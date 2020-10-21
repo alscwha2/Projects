@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 3</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8" type="text/javascript"></script>
+  <!--<script src="data.js" charset="utf-8" type="text/javascript"></script>-->
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<div id="div5"></div>
+<div id="div6"></div>
+<div id="div7"></div>
+<div id="div8"></div>
+<div id="div9"></div>
+<div id="div10"></div>
+<div id="div11"></div>
+<div id="div12"></div>
+<script type="text/javascript">
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+
+
+
+var month5 = ["Jan 2015", "Feb 2015", "Mar 2015", "Apr 2015", "May 2015", "June 2015", "July 2015", "Aug 2015", "Sept 2015", "Oct 2015", "Nov 2015", "Dec 2015"];
+
+var numCalls5 = [93, 114, 90, 87, 70, 74, 67, 95, 91, 110, 71, 95];
+
+var RT5 = [93, 207, 297, 384, 454, 528, 595, 690, 781, 891, 962, 1057];
+
+var assessments5 = [22, 41, 30, 33, 17, 20, 25, 20, 29, 34, 24, 21];
+
+var RTassessments5 = [22, 63, 93, 126, 143, 163, 188, 208, 237, 271, 295, 316];
+
+var SA5 = [16, 19, 20, 14, 9, 9, 15, 6, 19, 20, 13, 12];
+
+var SO5 = [5, 17, 10, 17, 7, 8, 6, 13, 10, 13, 6, 7];
+
+var gamb5 = [1, 5, 0, 2, 1, 3, 4, 1, 0, 1, 5, 2];
+
+var newAdmits5 = [6, 15, 19, 23, 15, 13, 14, 11, 7, 11, 19, 19];
+
+var RTNewAdmits5 = [6, 21, 40, 63, 78, 91, 105, 116, 123, 134, 153, 172];
+
+var menAd5 = [5, 8, 7, 11, 7, 4, 6, 8, 3, 5, 6, 11];
+
+var womanAd5 = [0, 3, 1, 4, 1, 2, 2, 2, 1, 1, 2, 2];
+
+var nonAd5 = [1, 4, 11, 8, 7, 7, 6, 1, 3, 5, 11, 6];
+
+
+
+
+var month6 = ["Jan 2016", "Feb 2016", "Mar 2016", "Apr 2016", "May 2016", "June 2016", "July 2016", "Aug 2016", "Sept 2016", "Oct 2016", "Nov 2016", "Dec 2016"];
+
+var numCalls6 = [88, 98, 87, 77, 91, 118, 122, 73, 73, 67, 87, 65];
+
+var RT6 = [88, 186, 273, 350, 441, 559, 681, 754, 827, 894, 981, 1046];
+
+var assessments6 = [29, 31, 28, 20, 21, 19, 15, 13, 31, 16, 23, 28];
+
+var RTassessments6 = [29, 60, 88, 108, 129, 148, 163, 176, 207, 223, 246, 274];
+
+var SA6 = [13, 24, 16, 13, 8, 10, 11, 5, 18, 10, 13, 18];
+
+var SO6 = [10, 4, 9, 4, 13, 8, 2, 4, 11, 3, 9, 8];
+
+var gamb6 = [6, 3, 3, 3, 0, 1, 2, 4, 2, 3, 1, 2];
+
+var newAdmits6 = [16, 16, 16, 16, 14, 8, 11, 10, 12, 10, 15, 13];
+
+var RTNewAdmits6 = [16, 32, 48, 64, 78, 86, 97, 107, 119, 129, 144, 157];
+
+var menAd6 = [6, 12, 8, 11, 8, 4, 5, 8, 7, 6, 6, 9];
+
+var womanAd6 = [2, 1, 2, 1, 0, 0, 1, 1, 0, 1, 3, 2];
+
+var nonAd6 = [8, 3, 6, 4, 5, 4, 5, 1, 5, 3, 6, 2];
+
+
+
+
+
+
+
+
+  var layout = {
+    titlefont: {family: "sans-serif", size: 50, color: "grey"},
+    height: 800,
+    width: 1500,
+    xaxis: {tickmode: "linear", dtick: 1, titlefont: {size: 40}},
+    yaxis: {tickmode: "linear", dtick: 2, titlefont: {size: 40}},
+  };
+  var trace1 = {
+    x: months,
+    mode: 'markers',
+    type: 'scatter',
+    marker: {
+      size: 30,
+      opacity: 0.7
+    }
+  };
+  var trace2 = {
+    x: months,
+    mode: 'markers',
+    type: 'scatter',
+    marker: {
+      size: 30,
+      opacity: 0.7
+    }
+  };
+  var data = [trace1, trace2];
+
+  trace1.y = numCalls5;
+  trace2.y = numCalls6;
+  layout.yaxis.title = "Number of Calls";
+  Plotly.newPlot('div1', data, layout);
+
+  trace1.y = RT5;
+  trace2.y = RT6;
+  layout.yaxis.title = "Total Number of Calls";
+  Plotly.newPlot('div2', data, layout);
+
+  trace1.y = assessments5;
+  trace2.y = assessments6;
+  layout.yaxis.title = "Number of Assessments";
+  Plotly.newPlot('div3', data, layout);
+
+  trace1.y = RTassessments5;
+  trace2.y = RTassessments6;
+  layout.yaxis.title = "Total Number of Assessments";
+  Plotly.newPlot('div4', data, layout);
+
+  trace1.y = SA5;
+  trace2.y = SA6;
+  layout.yaxis.title = "Number of Substance Abuse";
+  Plotly.newPlot('div5', data, layout);
+
+  trace1.y = SO5;
+  trace2.y = SO6;
+  layout.yaxis.title = "Number of Significant Others";
+  Plotly.newPlot('div6', data, layout);
+
+  trace1.y = gamb5;
+  trace2.y = gamb6;
+  layout.yaxis.title = "Number of Gamblers";
+  Plotly.newPlot('div7', data, layout);
+
+  trace1.y = newAdmits5;
+  trace2.y = newAdmits6;
+  layout.yaxis.title = "Number of New Admits";
+  Plotly.newPlot('div8', data, layout);
+
+  trace1.y = RTNewAdmits5;
+  trace2.y = RTNewAdmits6;
+  layout.yaxis.title = "Total Number of New Admits";
+  Plotly.newPlot('div9', data, layout);
+
+  trace1.y = menAd5;
+  trace2.y = menAd6;
+  layout.yaxis.title = "Number of Men Addict Admits";
+  Plotly.newPlot('div10', data, layout);
+
+  trace1.y = womanAd5;
+  trace2.y = womanAd6;
+  layout.yaxis.title = "Number of Women Addict Admits";
+  Plotly.newPlot('div11', data, layout);
+
+  trace1.y = nonAd5;
+  trace2.y = nonAd6;
+  layout.yaxis.title = "Number of Non Addict Admits";
+  Plotly.newPlot('div12', data, layout);
+</script>
+</body>
+</html>

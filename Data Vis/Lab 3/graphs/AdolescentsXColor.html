@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 3</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8" type="text/javascript"></script>
+  <script src="data.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<div id="div5"></div>
+<div id="div6"></div>
+<div id="div7"></div>
+<div id="div8"></div>
+<script type="text/javascript">
+
+  var scaredColors = [["white", -0.5, 2.5], ["orange", 2.5, 10]];
+  var adolDepColors = [["white", -0.5, 4.5], ["yellow", 4.5, 9.5], ["orange", 9.5, 14.5], ["red", 14.5, 19.5], ["maroon", 19.5, 28]];
+  var gadColors = [["white", -0.5, 4.5], ["yellow", 4.5, 9.5], ["orange", 9.5, 14.5], ["red", 14.5, 21.5]];
+
+  //the full plot
+  var layout = {
+    title: "Adolescent",
+    titlefont: {family: "sans-serif", size: 50, color: "grey"},
+    height: 800,
+    width: 1500,
+    xaxis: {tickmode: "linear", dtick: 1, title: "Depression", titlefont: {size: 40}},
+    yaxis: {tickmode: "linear", dtick: 2, title: "Anxiety SCARED", titlefont: {size: 40}},
+    plot_bgcolor: "#cccccc"
+  };
+
+  layout.shapes = [];
+  layout.shapes = layout.shapes.concat(createShapes(scaredColors, false));
+  layout.shapes = layout.shapes.concat(createShapes(adolDepColors, true));
+  var oldAxis = layout.shapes;
+  extendX();
+
+  var trace = {
+    x: adolDep,
+    y: scared,
+    mode: 'markers',
+    type: 'scatter',
+  };
+
+  var data = [trace];
+
+  Plotly.newPlot('div1', data, layout);
+
+  var size = getSizes(scared, adolDep);
+  var text = []; for (var i = 0; i < size.length; i++) text.push(size[i] / 10);
+  var textsize = []; for (var i = 0; i < size.length; i++) textsize.push(size[i] / 2);
+
+  //the size frequency plot
+  trace.mode = 'markers+text';
+  trace.marker = {size: size};
+  trace.text = text;
+  trace.textfont = {color: '#39FF14', size: textsize};
+  Plotly.newPlot('div2', data, layout);
+
+  //now switch
+  layout.shapes = oldAxis;
+  swapAxes();
+  extendX();
+  Plotly.newPlot('div4', data, layout);
+
+  trace.mode = 'markers';
+  trace.marker = {};
+  Plotly.newPlot('div3', data, layout);
+
+  //now for GAD
+
+  swapAxes();
+  layout.yaxis.title = "Anxiety GAD-7";
+  layout.shapes = [];
+  layout.shapes = layout.shapes.concat(createShapes(gadColors, false));
+  layout.shapes = layout.shapes.concat(createShapes(adolDepColors, true));
+  oldAxis = layout.shapes;
+  extendX();
+  trace.y = gad;
+  Plotly.newPlot('div5', data, layout);
+
+  var size = getSizes(gad, adolDep);
+  var text = []; for (var i = 0; i < size.length; i++) text.push(size[i] / 10);
+  var textsize = []; for (var i = 0; i < size.length; i++) textsize.push(size[i] / 2);
+
+  trace.mode = 'markers+text';
+  trace.marker = {size: size};
+  trace.text = text;
+  trace.textfont = {color: '#39FF14', size: textsize};
+  Plotly.newPlot('div6', data, layout);
+
+  layout.shapes = oldAxis;
+  swapAxes();
+  extendX();
+  Plotly.newPlot('div8', data, layout);
+
+  trace.mode = 'markers';
+  trace.marker = {};
+  Plotly.newPlot('div7', data, layout);
+</script>
+</body>
+</html>

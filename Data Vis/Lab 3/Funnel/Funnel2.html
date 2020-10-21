@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 3</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8" type="text/javascript"></script>
+  <script src="data.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<div id="div5"></div>
+<div id="div6"></div>
+<div id="div7"></div>
+<div id="div8"></div>
+<div id="div9"></div>
+<script type="text/javascript">
+
+  var layout = {
+    titlefont: {family: "sans-serif", size: 50, color: "grey"},
+    height: 800,
+    width: 1500,
+    xaxis: {tickmode: "linear", dtick: 1, titlefont: {size: 40}},
+    yaxis: {tickmode: "linear", dtick: 2, titlefont: {size: 40}},
+  };
+  var trace1 = {
+    x: months,
+    type: 'bar',
+  };
+  var trace2 = {
+    x: months,
+    type: 'bar',
+  };
+  var data = [trace1, trace2];
+
+  trace1.y = numCalls5;
+  trace2.y = numCalls6;
+  layout.yaxis.title = "Number of Calls";
+  Plotly.newPlot('div1', data, layout);
+
+  trace1.y = assessments5;
+  trace2.y = assessments6;
+  layout.yaxis.title = "Number of Assessments";
+  Plotly.newPlot('div2', data, layout);
+
+  trace1.y = SA5;
+  trace2.y = SA6;
+  layout.yaxis.title = "Number of Substance Abuse";
+  Plotly.newPlot('div3', data, layout);
+
+  trace1.y = SO5;
+  trace2.y = SO6;
+  layout.yaxis.title = "Number of Significant Others";
+  Plotly.newPlot('div4', data, layout);
+
+  trace1.y = gamb5;
+  trace2.y = gamb6;
+  layout.yaxis.title = "Number of Gamblers";
+  Plotly.newPlot('div5', data, layout);
+
+  trace1.y = newAdmits5;
+  trace2.y = newAdmits6;
+  layout.yaxis.title = "Number of New Admits";
+  Plotly.newPlot('div6', data, layout);
+
+  trace1.y = menAd5;
+  trace2.y = menAd6;
+  layout.yaxis.title = "Number of Men Addict Admits";
+  Plotly.newPlot('div7', data, layout);
+
+  trace1.y = womanAd5;
+  trace2.y = womanAd6;
+  layout.yaxis.title = "Number of Women Addict Admits";
+  Plotly.newPlot('div8', data, layout);
+
+  trace1.y = nonAd5;
+  trace2.y = nonAd6;
+  layout.yaxis.title = "Number of Non Addict Admits";
+  Plotly.newPlot('div9', data, layout);
+</script>
+</body>
+</html>

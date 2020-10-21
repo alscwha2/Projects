@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 3</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8" type="text/javascript"></script>
+  <script src="data.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<script type="text/javascript">
+
+  //make the legends
+  var anxColors = [["white", -0.5, 4.5], ["yellow", 4.5, 9.5], ["orange", 9.5, 14.5], ["red", 14.5, 21.5]];
+  var depColors = [["white", -0.5, 4.5], ["yellow", 4.5, 9.5], ["orange", 9.5, 14.5], ["red", 14.5, 19.5], ["maroon", 19.5, 28]];
+
+  //the full plot
+  var trace = {
+    x: dep,
+    y: anx,
+    mode: 'markers',
+    type: 'scatter',
+  };
+  var data = [trace];
+
+  var layout = {
+    title: "Adult",
+    titlefont: {family: "sans-serif", size: 50, color: "grey"},
+    height: 800,
+    width: 1500,
+    xaxis: {tickmode: "linear", dtick: 1, titlefont: {size: 40}, title: "Depression"},
+    yaxis: {tickmode: "linear", dtick: 2, titlefont: {size: 40}, title: "Anxiety"},
+    plot_bgcolor: "#cccccc"
+  };
+
+  layout.shapes = [];
+  layout.shapes = layout.shapes.concat(createShapes(anxColors, false));
+  layout.shapes = layout.shapes.concat(createShapes(depColors, true));
+  var oldAxis = layout.shapes;
+  extendY();
+
+  Plotly.newPlot('div3', data, layout);
+
+  var size = getSizes(anx, dep);
+  var text = []; for (var i = 0; i < size.length; i++) text.push(size[i] / 10);
+  var textsize = []; for (var i = 0; i < size.length; i++) textsize.push(size[i] / 2);
+
+  //the size frequency plot
+  trace.mode = 'markers+text';
+  trace.marker = {size: size};
+  trace.text = text;
+  trace.textfont = {color: '#39FF14', size: textsize};
+  Plotly.newPlot('div4', data, layout);
+
+  layout.shapes = oldAxis;
+  swapAxes();
+  extendY();
+  Plotly.newPlot('div2', data, layout);
+  trace.mode = 'markers';
+  trace.marker = {};
+  Plotly.newPlot('div1', data, layout);
+</script>
+</body>
+</html>

@@ -22,29 +22,25 @@ from heapq import *
 '''
 
 class Solution:
+	# implement ListNode.__lt__ function so that ListNodes work in heap
+	def lt(self: ListNode, other: ListNode):
+		return self.val < other.val
+	ListNode.__lt__ = lt
+
 	def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-
-		# implement ListNode.__lt__ function so that ListNodes work in heap
-		def lt(self: ListNode, other: ListNode):
-			return self.val < other.val
-		ListNode.__lt__ = lt
-
 		# initialize heap
 		heap = [node for node in lists if node is not None]
 		heapify(heap)
 
-		# take out the head 
-		if heap == []: return None
-		current = head = heappop(heap)
-		if current.next is not None: heappush(heap, current.next)
-
+		current = header = ListNode()
 		# get next node, add to list, push its successor back on heap
 		while heap != []:
 			current.next = heappop(heap)
 			current = current.next
-			if current.next is not None: heappush(heap, current.next)
+			if current.next is not None: 
+				heappush(heap, current.next)
 		
-		return head
+		return header.next
 		
 
 # sys.argv[1]

@@ -2,6 +2,10 @@ from sys import argv
 from typing import List
 
 """
+	I TRIED TO CANGE THIS FROM USING LISTS TO DEQUES BUT BECAME A HASSLE. 
+	THIS SHOULD BE CHANGED FROM LISTS TO DEQUES
+
+
 This was the first working solution. It is kind of brute forcing it. 
 I don't like this solution and it isn't so fast.
 The only hard part of this problem is how to deal with the star.

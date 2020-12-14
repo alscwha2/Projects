@@ -2,37 +2,48 @@ from typing import List
 from sys import argv as argv
 from collections import deque as deque
 from collections import defaultdict as defaultdict
-import heapq
+from heapq import heappush, heappop
 
-'''
-	Take the smallest lexical path
-	Then expand all of the remaining loops and edpoint and insert
-'''
-
-class ListNode:
-	def __init__(self, val, next=None):
-		self.val = val
-		self.next = next
 
 class Solution:
 	def findItinerary(self, tickets: List[List[str]]) -> List[str]:
-		nodes = dict()
-		vertices = defaultdict(list)
+		self.nodes = set([airport for flight in tickets for airport in flight])
+		self.edges = defaultdict(list)
 		for ticket in tickets:
-			vertices[ticket[0]].heappush(vertices[ticket[1]])
+			heappush(self.edges[ticket[0]], ticket[1])
+		self.stack = deque()
 
-		# be greedy, will be left with cyles
-		current = head = ListNode('JFK')
-		while vertices[current]:
-			children = vertices[current.val]
-			current.next = ListNode(heappop(children))
-			if not children:
-				del vertices[current.val]
-			current = current.next
+		return self.dfs("JFK")
+
+
+	def dfs(self, node: str) -> List[str]:
+		self.stack.append(node)
+		path = []
+		cycles = []
+		neighbors = self.edges[node]
+		while neighbors != []:
+			neighbor = heappop(neighbors)
+			if neighbor in self.stack:
+				path = [neighbor]
+				continue
+			next = self.dfs(neighbor)
+			if next[-1] is node:
+				cycles.append(next)
+			else:
+				path = next
+		self.stack.pop()
+		path = [node] + [n for cycle in cycles for n in cycle] + path
+		return path
+
 
 
 
 
 
 # argv[1]
-# print(Solution())
+Input= [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+Output= ["JFK","ATL","JFK","SFO","ATL","SFO"]
+print(Solution().findItinerary(Input) == Output)
+print("input:   ", Input)
+print("output:  ", Solution().findItinerary(Input))
+print("expected:", Output)

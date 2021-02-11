@@ -7,25 +7,32 @@ from ListConstructor import ListNode, construct, printList
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution:
-	def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
-		header = ListNode(-1, head)
-		curr = header
-		for i in range(m-2):
-			curr = curr.next
-		tail1 = curr
-		head2 = tail2 = curr = curr.next
-		next = curr.next
-		for i in range(n-m):
-			curr = next
-			next = next.next
-			curr.next = head2
-			head2 = curr
 
-		tail1.next = head2
-		tail2.next = next
-		return head
+
+class Solution:
+    def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
+        header = ListNode(-1, head)
+
+        # find the first node to be reversed and the one before it
+        prev = current = header
+        for _ in range(m):
+            prev = current
+            current = current.next
+
+        # iterate through reversing the links
+        tail, next = current, current.next
+        for _ in range(n-m):
+            temp = next.next
+            next.next = current
+            current, next = next, temp
+
+        # attach the first section to the beginning of the reversed section
+        #  and the end of the reversed section to the end section
+        prev.next = current
+        tail.next = next
+        return header.next
 
 
 # argv[1]
-printList(Solution().reverseBetween(construct([1,2,3,4,5]), 2, 4))
+printList(Solution().reverseBetween(construct([3, 5]), 1, 2))
+

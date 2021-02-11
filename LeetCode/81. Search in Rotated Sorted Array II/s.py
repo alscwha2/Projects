@@ -12,66 +12,37 @@ from sys import argv as argv
 		Find a way to binary search while accounting for the rotation in one pass
 '''
 
+
 class Solution:
-	def search(self, nums: List[int], target: int) -> bool:
-		if not nums:
-			return False
+    def search(self, nums: List[int], target: int) -> bool:
+        '''
+        first find the pivot point
+        compare beginning to middle:
+            if middle is smaller, you know pivot point is in between those
+            if bigger you know its in the second half of the array
+            if equal no info, have to repeat for both halves
+        '''
 
-		n = len(nums)
-		def searchStartingIndex(i=0,j=n-1):
-			if i == j:
-				return i-1
+        # search in [i,j], return index of smallest value, or -1 if they're all equal
+        def find_pivot(i, j):
+            if i >= j:
+                return -1
 
-			if nums[i] == nums[j]:
-				k = i + (j-i)//2
-				if nums[k] > nums[i]:
-					i = k+1
-				if nums[k] < nums[j]:
-					j = k
-				if nums[k] == nums[i]:
-					'''
-						give starting index if not all equal else i-1
-					'''
-					left = searchStartingIndex(i,k)
-					right = searchStartingIndex(k,j)
-					if left == i-1 and right == k-1:
-						return -1
-					if left == i-1:
-						return right
-					if right == k-1:
-						return left
+            k = i + (i+j)//2
+            if nums[k] > nums[i]:
+                pivot = find_pivot(k, j)
+                return pivot if pivot != -1 else
+                return find_pivot(k, j)
+            elif nums[k] < nums[i]:
+                return find_pivot(i, k)
+            else:
+                return find_pivot(i, k) or find_pivot(k, j)
 
-			while i <= j:
-			if nums[i] <= nums[j]:
-				return i
-			else:
-				k == i + (j-i)//2
-				if nums[k] >= nums[i]: # only one of these two can execute b/c nums[i]>nums[j]
-					i = k+1
-				if nums[k] <= nums[j]:
-					j = k
-
-		head = searchStartingIndex()
-		if head == -1:
-			return nums[0] == target
-
-		print(head)
-		def convert(i):
-			return (i + head)%n
-
-		i,j = 0,n-1
-		while i <= j:
-			k = i + (j-i)//2
-			num = nums[convert(k)]
-			if num < target:
-				i = k+1
-			elif num > target:
-				j = k-1
-			else:
-				return True
-		return False
-
+        '''
+            after finding the pivot point, convert indicies, and do binary search
+            '''
 
 
 # argv[1]
-print(Solution().search([1,3,1,1,1],3))
+print(Solution().search([1, 3, 1, 1, 1], 3))
+

@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /******************************************************************************
+ * NONE OF THE CODE IN THIS FILE WAS WRITTEN BY AARON SCHWARTZ-MESSING
+ * 
  *  Limitations: Assumes MAX is even and MAX >= 4
  * NOTE: Edited by Judah Diament to increase readability (renamed variables, added comments, formating, etc.)
  * original java file: http://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BTree.java

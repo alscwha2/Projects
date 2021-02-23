@@ -5,7 +5,7 @@
 # Server.ConnectionManager
 * Manages communication with client
 * creates RequestHandler thread to handle client request
-# RequestHandler.java
+# RequestHandler
 * handles request by transforming it into database accesses
 # DBLockHandler
 * makes database thread-safe by ensuring atomicity

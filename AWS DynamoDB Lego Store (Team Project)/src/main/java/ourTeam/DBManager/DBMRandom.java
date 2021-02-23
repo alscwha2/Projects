@@ -4,6 +4,11 @@ import java.util.Random;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+ * This is a dummy implementation of the DBManager class. 
+ * Its purpose is to test the functionality of the rest of our code in isolation.
+ */
+
 class DBMRandom implements DBManager {
 
     Random random;

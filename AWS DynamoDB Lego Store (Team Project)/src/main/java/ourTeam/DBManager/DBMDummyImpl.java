@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.Random;
 
+/*
+ * This is a dummy implementation of the DBManager class. 
+ * Its purpose is to test the functionality of the rest of our code in isolation.
+ */
+
 public class DBMDummyImpl implements DBManager {
 
     private HashMap<Integer, Integer> setsInStock;

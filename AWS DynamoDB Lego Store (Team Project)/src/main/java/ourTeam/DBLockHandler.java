@@ -3,6 +3,10 @@ package ourTeam;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/*
+ * This code was NOT written by Aaron Schwartz-Messing
+ */
+
 public class DBLockHandler {
 
     private ConcurrentHashMap<String,ReentrantReadWriteLock> partLocks;

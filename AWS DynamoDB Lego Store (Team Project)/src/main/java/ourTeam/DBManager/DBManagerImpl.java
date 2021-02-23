@@ -8,6 +8,10 @@ import com.amazonaws.services.dynamodbv2.model.*;
 
 import java.util.*;
 
+/*
+	This code was NOT writted by Aaron Schwartz-Messing
+*/
+
 
 public class DBManagerImpl implements DBManager{
     AmazonDynamoDB client;

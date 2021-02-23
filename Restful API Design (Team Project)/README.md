@@ -1,12 +1,13 @@
-# RESTful APIs for a University Registrar
+# Project Description
+## RESTful APIs for a University Registrar
 ![ER Diagram of Registration System](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIImage.jpg?raw=true)
-# Required for Each Function
+## Required for Each Function
 1. URIs, including parameters
 2. HTTP requests and response headers
 	1. You only need to include those headers that appear in these lecture slides, not all headers
 3. Payloads wherever the entire message is not contained in the URI and HTTP headers
 	1. Use JSON for payloads
-# List of Functions for Professors
+## List of Functions for Professors
 * Professors and deans can Create Read Update Delete
 	* Majors
 	* Courses
@@ -18,7 +19,7 @@
 		* Semester, time, day, location, professor, maximum number of students
 	* Everyone can read all the above
 * Professors give students grades
-# List of Functions: Advisors, Students
+## List of Functions: Advisors, Students
 * Academic advisors approve students’ schedules
 	* Students must be cleared to register before doing so
 * Students register for class offerings

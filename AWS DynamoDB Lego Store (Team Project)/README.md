@@ -1,3 +1,7 @@
+A few quick notes:
+* Host must be manually changed in the main method of the Client.java class
+* I did some post-facto reorganization, which may affect the package structure
+
 # Advanced Distributed Systems Spring 2018 Project Description
 * You will build an application that uses an eventually consistent, replicated, fault tolerant key-value store.
 * That application will be implemented ONCE

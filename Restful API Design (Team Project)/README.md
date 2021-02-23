@@ -33,3 +33,15 @@ performance statistics on professors, specifically:
 	* Mode, Median
 2. How do students who take class X with a given professor perform subsequently
 	* E.g. 75% of those who take COM 9999 with Professor X get a B+ when they take COM 8888 with professor Y
+
+# Submission
+![page1](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0001.jpg?raw=true)
+![page2](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0002.jpg?raw=true)
+![page3](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0003.jpg?raw=true)
+![page4](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0004.jpg?raw=true)
+![page5](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0005.jpg?raw=true)
+![page6](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0006.jpg?raw=true)
+![page7](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0007.jpg?raw=true)
+![page8](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0008.jpg?raw=true)
+![page9](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0009.jpg?raw=true)
+![page10](https://github.com/alscwha2/Projects/blob/master/Images/RestfulAPIDesign-images/0010.jpg?raw=true)

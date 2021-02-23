@@ -9,4 +9,3 @@
 	2. A file called “crc.txt” with the crc checksum of the complete jar/zip file
 	3. A file called “report.txt” that gives the relative path inside the zip file to every compressed file that has the file extension that was passed in via the “report” argument. Each relative path should be on its own line
 * These 3 files should NOT be in the zip file!
-*

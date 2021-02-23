@@ -26,7 +26,7 @@
 * their AWS configuration and deployment, tests, code, etc. We should allow at least an hour for that
 * appointment/demonstration.
 # Application Data
-![application UML chart] (https://github.com/alscwha2/Projects/Images/legodata.jpg)
+![application UML chart] (https://github.com/alscwha2/Projects/blob/master/Images/legodata.jpg?raw=true)
 ## Application Logic
 * There are roughly 26,000 parts and 11,000 sets in the data set. You will load all that data into the data store.
 * To keep things manageable and avoid the need for transactions and/or locking, we will make the connection between the application server and the data stores single threaded

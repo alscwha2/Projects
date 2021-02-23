@@ -14,12 +14,6 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 /*
- Left to do: 
- 	Check to see if it works on linux
- 	make sure that it works with java
-
- */
-/*
  * Aaron Schwartz-Messing
  * Mordechai Schmutter
  */

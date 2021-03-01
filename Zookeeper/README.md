@@ -1,3 +1,5 @@
+To run, download Zookeeper and start the zookeeper server on your machine. Then simply run the scrip "easy_run.sh."
+
 The input file is in the curent directory named input.txt. Input syntax and limitations specified there.
 I provided two bash files. run.sh takes arguments, arg1=host:port arg2=numWorkers arg3=inputFilePath. 
 easy_run.sh takes no arguments and calls run.sh with default arguments.

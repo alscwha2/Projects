@@ -1,4 +1,5 @@
 import requests
+import os
 from selenium.webdriver import Chrome
 from selenium.webdriver import ChromeOptions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -31,6 +32,63 @@ options.headless = True
 
 
 links = {}
+with open("links", "r") as f:
+	links = json.load(f)
+
+number_to_dir = {}
+for problem in os.listdir('..'):
+	if problem[0].isnumeric():
+		number_to_dir[str(int(problem.split('.')[0]))] = problem
+
+
+
+# print(sorted([int(j) for j in [str(i) for i in range(2361)] - links.keys()]))
+# print(problem_numbers - links.keys())
+
+for number in number_to_dir.keys():
+	if number in links.keys():
+		while True:
+			try:
+				url = links[number]
+				driver = Chrome(executable_path='/home/aaron/Downloads/chromedriver', options=options)
+				driver.get(url)
+				description = driver.find_element_by_class_name("content__u3I1").get_attribute('innerHTML')
+				full_path = f"/home/aaron/Projects/LeetCode/{number_to_dir[number]}/README.md"
+				with open(full_path, "w") as f:
+					print(description, file=f)
+				print(full_path)
+				print(description)
+				break
+			except NoSuchElementException as e:
+				print(e)
+
+				# <div data-cy="question-title" class="css-v3d350">2. Add Two Numbers</div>
+
+
+
+# while True:
+# 	try:
+# 		url = f"https://leetcode.com/problemset/all/?page={current_page[0]}"
+# 		driver = Chrome(executable_path='/home/aaron/Downloads/chromedriver', options=options)
+# 		driver.get(url)
+
+# 		sleep(10)
+# 		soup = BeautifulSoup(driver.page_source, 'html.parser')
+# 		printed = False
+# 		for link in soup.find_all("a", class_="h-5 hover:text-blue-s dark:hover:text-dark-blue-s"):
+# 			print(f"{link.text} : https://leetcode.com{link.get('href')}")
+# 			links[link.text.split('.')[0]] = f"https://leetcode.com{link.get('href')}"
+# 		with open("links", "w") as f:
+# 			json.dump(links, f)
+# 		current_page[0] += 1
+# 	except NoSuchElementException as e:
+# 		print(e)
+
+
+
+
+'''
+THIS IS THE CODE THAT I USED TO GET ALL OF THE LINKS
 
 current_page = [1]
 
@@ -52,6 +110,7 @@ while current_page[0] < 49:
 	except NoSuchElementException as e:
 		print(e)
 
+'''
 
 '''
 

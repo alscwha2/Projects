@@ -25,6 +25,51 @@ from time import sleep
 
 '''
 
+'''
+	This is my attempt to also get the code to come with it. hasn't worked yet
+
+'''
+
+
+url = "https://leetcode.com/problems/reverse-integer/"
+
+options = ChromeOptions()
+options.headless = True
+
+while True:
+	try:
+		driver = Chrome(executable_path='/home/aaron/Downloads/chromedriver', options=options)
+		driver.get(url)
+		wait = WebDriverWait(driver, 20)
+		title = driver.find_element_by_class_name("css-v3d350").text
+		description = driver.find_element_by_class_name("content__u3I1").get_attribute('innerHTML')
+		# driver.execute_script("""
+		# var l = document.getElementsByClassName("CodeMirror-gutter-wrapper");
+		# for (let child of l)
+		# 	child.parentNode.removeChild(child);
+		# """)
+		driver = excludeTagFromWebDriver(driver, ".CodeMirror-gutter-wrapper")
+		code = driver.find_element(By.CLASS_NAME, "CodeMirror-code")
+		soup = BeautifulSoup(code.get_attribute("innerHTML"), "html.parser")
+		print(soup.prettify())
+		# for tag in soup.find_all("div", "CodeMirror-linenumber CodeMirror-gutter-elt"):
+		# 	tag.extract()
+		# print(soup.get_text())
+		# print(code.get_attribute("innerHTML"))
+		print(code.text)
+		break
+	except NoSuchElementException as e:
+		print(e)
+
+
+
+
+
+'''
+
+THIS IS THE CODE THAT I USED TO MAKE THE READMES FOR THE PROBLEMS THAT I ALREADY DID
+
+
 
 
 options = ChromeOptions()
@@ -65,25 +110,7 @@ for number in number_to_dir.keys():
 				# <div data-cy="question-title" class="css-v3d350">2. Add Two Numbers</div>
 
 
-
-# while True:
-# 	try:
-# 		url = f"https://leetcode.com/problemset/all/?page={current_page[0]}"
-# 		driver = Chrome(executable_path='/home/aaron/Downloads/chromedriver', options=options)
-# 		driver.get(url)
-
-# 		sleep(10)
-# 		soup = BeautifulSoup(driver.page_source, 'html.parser')
-# 		printed = False
-# 		for link in soup.find_all("a", class_="h-5 hover:text-blue-s dark:hover:text-dark-blue-s"):
-# 			print(f"{link.text} : https://leetcode.com{link.get('href')}")
-# 			links[link.text.split('.')[0]] = f"https://leetcode.com{link.get('href')}"
-# 		with open("links", "w") as f:
-# 			json.dump(links, f)
-# 		current_page[0] += 1
-# 	except NoSuchElementException as e:
-# 		print(e)
-
+'''
 
 
 

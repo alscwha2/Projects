@@ -28,4 +28,4 @@ class Solution:
 		
 
 # argv[1]
-print(Solution().mirrorReflection(24,36))
+# print(Solution().mirrorReflection(24,36))

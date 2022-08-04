@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 from sys import argv
 from os import mkdir
 
-# url = argv[1]
+url = argv[1]
 
 options = ChromeOptions()
 options.headless = True
@@ -15,7 +15,7 @@ options.headless = True
 while True:
 	try:
 		driver = Chrome(executable_path='/home/aaron/Downloads/chromedriver', options=options)
-		driver.get("https://leetcode.com/problems/median-of-two-sorted-arrays/")
+		driver.get(url)
 		wait = WebDriverWait(driver, 20)
 		title = driver.find_element_by_class_name("css-v3d350").text
 		description = driver.find_element_by_class_name("content__u3I1").get_attribute('innerHTML')

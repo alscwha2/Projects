@@ -32,3 +32,10 @@ def construct_list(l):
 
 def printList(l):
 	print([elem for elem in l])
+
+def print_from_node(l):
+	nodes = []
+	while(l is not None):
+		nodes.append(l.val)
+		l = l.next
+	print(nodes)

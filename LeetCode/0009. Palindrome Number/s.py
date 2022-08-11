@@ -4,16 +4,19 @@ from math import floor, log10
 class Solution:
 	def isPalindrome(self, x: int) -> bool:
 		if x <= 0:
-			return not bool(x)
+			return not x
+
+		def get_digit(place):
+			return (x // (10 ** place)) % 10
 		
-		power = floor(log10(x))
-		place = 0
+		left = floor(log10(x))
+		right = 0
 		
-		while power > place:
-			if  x // 10 ** power % 10 != x // 10 ** place % 10:
+		while left > right:
+			if get_digit(left) != get_digit(right):
 				return False
-			power -= 1
-			place += 1
+			left -= 1
+			right += 1
 		
 		return True
 		

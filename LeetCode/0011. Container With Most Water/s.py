@@ -1,8 +1,14 @@
+"""
+Linear time, constant space
+"""
+
+from typing import List
+
+
 class Solution:
 	def maxArea(self, height: List[int]) -> int:
 		# calculate end-to-end volume
-		r = len(height) - 1
-		l = 0
+		l, r = 0, len(height) - 1
 		best = 0
 
 		while r > l:
@@ -12,7 +18,9 @@ class Solution:
 			else:
 				current = height[r] * (r-l)
 				r -= 1
-			if current > best:
-				best = current
+			best = max(best, current)
 
 		return best
+
+
+print(Solution().maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))

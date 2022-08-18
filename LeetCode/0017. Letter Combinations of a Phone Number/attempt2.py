@@ -22,7 +22,7 @@ class Solution:
             '9': ['w', 'x', 'y', 'z']
         }
 
-        return [''.join(s) for s in product(*[letters[d] for d in digits])]
+        return [''.join(s) for s in product(*(letters[d] for d in digits))]
 
 
 print(Solution().letterCombinations("23453"))

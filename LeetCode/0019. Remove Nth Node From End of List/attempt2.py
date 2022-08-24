@@ -1,3 +1,9 @@
+"""
+Constant space, Linear time
+
+We can remove all of the checks if we assume LeetCode's guarantees about arguments
+"""
+
 from typing import Optional
 
 # Definition for singly-linked list.
@@ -9,9 +15,6 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        # Find the end
-        # Be able to keep track of Nth from the end
-        # Take out that node
         if head is None or n is 0:
             return None
 
@@ -21,15 +24,12 @@ class Solution:
             if end is None:
                 return None
 
-        prev = ListNode()
+        sentinel = prev = ListNode()
         prev.next = head
 
         while end.next is not None:
             end = end.next
             prev = prev.next
 
-        if prev.next is head:
-            return head.next
-
         prev.next = prev.next.next
-        return head
+        return sentinel.next

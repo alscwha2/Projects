@@ -3,6 +3,8 @@ from sys import argv
 
 '''
 	Trying to simulate long division here
+	Later Edit: use of abs here allows for overflow. To avoid this, 
+		all of the numbers must be converted to negatives
 '''
 class Solution:
 	def divide(self, dividend: int, divisor: int) -> int:

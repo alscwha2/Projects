@@ -2,6 +2,8 @@ from typing import List
 # from sys import argv as argv
 
 '''
+	DID NOT END UP FINISHING THIS, CODE DOES NOT WORK
+	
 	Keep in mind that all of the words are of the same length
 
 	1:

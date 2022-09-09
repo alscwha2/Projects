@@ -2,6 +2,13 @@ from typing import List
 from sys import argv as argv
 
 '''
+LATER EDIT: THERE ARE TWO PROBLEMS WITH THIS CODE
+1) WHEN LOOKING FOR THE NUMBER TO SWAP WITH, IT DOES IT BY SEARCHING 
+	LINEARLY FROM THE NED AND NOT WITH A BINARY SEARCH
+2) THE ARRAY REVERSAL AT THE END OF THE CODE USES LINEAR MEMORY, NOT CONSTANT
+THESE ARE BOTH SOLVED IN THE NEXT ATTEMPT
+
+
 look at it from the back
 as long as it is in descending order, keep looking
 once you find a number that is smaller than the previous one that you looked at:

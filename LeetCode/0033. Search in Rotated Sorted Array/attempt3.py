@@ -1,47 +1,37 @@
 from typing import List
-from sys import argv as argv
 
-'''
-	define pivot point as the point with the smallest value
-	find the pivot point using binary search
-
-	convert to pivoted indices by doing ri = (pi + pivot) % len(nums)
-'''
 
 class Solution:
-	def search(self, nums: List[int], target: int) -> int:
+    def search(self, nums: List[int], target: int) -> int:
+        def find_first_element():
+            l, r = 0, len(nums) - 1
+            while l < r:
+                if nums[l] < nums[r]:
+                    return l
+                else:
+                    m = (l + r) // 2
+                    if nums[l] <= nums[m]:
+                        l = m + 1
+                    else:
+                        r = m
+            return r
 
-		# find pivot point (i.e index of smallest element in array)
-		i = 0
-		j = len(nums)-1
-		while j > i:
-			k = i + (j-i)//2
-			if nums[k] > nums[j]:
-				i = k+1
-			if nums[k] <= nums[j]:
-				j = k
+        def get_pivoted_index(n):
+            return (first_element_index + n) % len(nums)
 
-		pivot = i
+        first_element_index = find_first_element()
+        l, r = 0, len(nums) - 1
 
-		# fn to convert from ideal 0...n-1 ideces to the indices of num array
-		def convert(i):
-			return (i + pivot) % len(nums)
+        while l <= r:
+            m = (l + r) // 2
+            current = nums[get_pivoted_index(m)]
+            if current < target:
+                l = m + 1
+            elif current > target:
+                r = m - 1
+            else:
+                return get_pivoted_index(m)
+        return -1
 
-		# binary search to find target
-		i = 0
-		j = len(nums) - 1
-		while j >= i:
-			k = i + (j-i)//2
-			num = nums[convert(k)]
 
-			if num == target:
-				return convert(k)
-			if num > target:
-				j = k-1
-			if num < target:
-				i = k+1
-
-		return -1
-
-# argv[1]
-print(Solution().search([4,5,6,7,0,1,2],0))
+print(Solution().search([4, 5, 6, 7, 0, 1, 2], 0))

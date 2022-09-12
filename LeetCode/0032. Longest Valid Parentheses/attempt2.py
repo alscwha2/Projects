@@ -17,9 +17,9 @@ from sys import argv as argv
 class Solution:
 	def longestValidParentheses(self, s: str) -> int:
 		inverse = {'(' : ')', ')' : '('}
-		reverse = ''.join([inverse[c] for c in s])
-		reverse = reverse[::-1]
+		reverse = ''.join([inverse[c] for c in s])[::-1]
 		return max(self.longestValidParenthesesHelper(s), self.longestValidParenthesesHelper(reverse))
+
 	def longestValidParenthesesHelper(self, s: str) -> int:
 		biggestSeen = 0
 		beginningIndex = 0

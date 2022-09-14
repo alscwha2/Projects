@@ -1,8 +1,7 @@
+from itertools import product
 from typing import List
-from sys import argv as argv
 
 '''
-	consider using an index PQ
 '''
 
 class Solution:
@@ -10,8 +9,8 @@ class Solution:
 		"""
 		Do not return anything, modify board in-place instead.
 		"""
-		possibilities = [[set([i for i in range(1,10)]) for j in range(9)] for k in range(9)]
+		for i, j in product(range(9), repeat=2):
+			if board[i, j] == '.':
+				board[i,j] = [num for num in range(9)]
 
- 
-# argv[1]
 print(Solution())

@@ -1,11 +1,7 @@
 from typing import List
-from sys import argv as argv
-import profile
 
 '''
 	The 'backtracking' method defined in the solution doc on leetcode.
-	This is better in every way...
-	Although the dp method might be better for much larger arrays
 '''
 
 class Solution:
@@ -26,8 +22,3 @@ class Solution:
 
 		candidates = sorted(candidates)
 		return finishGroup([], target, 0)
-
-
-
-		
-profile.run('Solution().combinationSum([i for i in range(1, 20)],40)')

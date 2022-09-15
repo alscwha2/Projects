@@ -4,21 +4,21 @@ class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()
 
-        def combinationSumHelper(i, target):
+        def combine_slice(i, target):
             combinations = []
             for index in range(i, len(candidates)):
                 num = candidates[index]
                 if index > i and num == candidates[index - 1]:
                     continue
                 if num < target:
-                    combinations.extend([num] + comb for comb in combinationSumHelper(index + 1, target - num))
+                    combinations.extend([num] + comb for comb in combine_slice(index + 1, target - num))
                 else:
                     if num == target:
                         combinations.append([num])
                     break
             return combinations
 
-        return combinationSumHelper(0, target)
+        return combine_slice(0, target)
 
 
 

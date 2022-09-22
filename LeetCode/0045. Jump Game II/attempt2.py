@@ -1,9 +1,5 @@
 from typing import List
-from sys import argv as argv
 
-'''
-	just cleaned this up so that I don't have to make special testing for fringe inputs
-'''
 
 class Solution:
 	def jump(self, nums: List[int]) -> int:

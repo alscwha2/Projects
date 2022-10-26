@@ -1,5 +1,5 @@
-﻿!(desc_page_1)[https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0001.jpg]
-!(desc_page_2)[https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0002.jpg]
-!(desc_page_3)[https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0003.jpg]
-!(desc_page_4)[https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0004.jpg]
-!(desc_page_5)[https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0005.jpg]
+﻿![desc_page_1](https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0001.jpg)
+![desc_page_2](https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0002.jpg)
+![desc_page_3](https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0003.jpg)
+![desc_page_4](https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0004.jpg)
+![desc_page_5](https://raw.githubusercontent.com/alscwha2/Projects/master/Database%20Implementation/db_project_description_pages/SemesterProjectDetailsv3_page-0005.jpg)

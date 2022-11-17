@@ -18,8 +18,7 @@ from typing import List
 
 
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> \
-    List[int]:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
 
         ########################## FUNCTION DEFINITIONS ########################
         def edge_list_to_adjacency_list_transpose(edge_list: List[List[int]]):
@@ -29,8 +28,7 @@ class Solution:
 
             return transpose
 
-        def has_cycles(graph: List[List[int]], *, path=None, seen=None,
-                       next=None) -> bool:
+        def has_cycles(graph: List[List[int]], *, path=None, seen=None, next=None) -> bool:
             """
             :param graph:
             :param path: for internal use only.
@@ -42,9 +40,8 @@ class Solution:
             # For initial call to has_cycles, should have no keyword arguments
             if path is None:
                 seen = set()
-                return any(
-                    has_cycles(graph, path=[], seen=seen, next=node) for node in
-                    range(numCourses))
+                return any(has_cycles(graph, path=[], seen=seen, next=node)
+                           for node in range(numCourses))
 
             # if we have seen 'next' on this path then there is a cycle
             if next in path:
@@ -58,9 +55,8 @@ class Solution:
 
             path.append(next)
             seen.add(next)
-            answer = any(
-                has_cycles(graph, path=path, seen=seen, next=child) for child in
-                graph[next])
+            answer = any(has_cycles(graph, path=path, seen=seen, next=child)
+                         for child in graph[next])
             path.pop()  # clean-up data structure for the next call to use it
             return answer
 

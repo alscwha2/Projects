@@ -13,19 +13,18 @@ from typing import List
         
         def transpose:
             for edge in graph:
-                replace prereq -> couse with course -> prereq
+                replace prereq -> course with course -> prereq
 """
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        transpose = [[] for _ in range(numCourses)]
-
-        def populate_transpose():
-            for course, prereq in prerequisites:
+        def edge_list_to_adjacency_list_transpose(edge_list: List[List[int]]):
+            transpose = [[] for _ in range(numCourses)]
+            for course, prereq in edge_list:
                 transpose[course].append(prereq)
 
-        populate_transpose()
+            return transpose
 
-        def postorder_dfs(graph: List[List[int]]) -> List[int]:
+        def postorder_dfs_without_cycles(graph: List[List[int]]) -> List[int]:
             """
             This function also check for cycles, and will return [] if cyclic
             :param graph:
@@ -56,7 +55,8 @@ class Solution:
 
             return [] if has_cycle else traversal
 
-        def topological_sort() -> List[int]:
-            return postorder_dfs(transpose)
+        def topological_sort(graph: List[List[int]]) -> List[int]:
+            return postorder_dfs_without_cycles(graph)
 
-        return topological_sort()
+        transpose = edge_list_to_adjacency_list_transpose(prerequisites)
+        return topological_sort(transpose)

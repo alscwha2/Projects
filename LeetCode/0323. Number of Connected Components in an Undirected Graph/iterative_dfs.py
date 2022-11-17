@@ -1,9 +1,8 @@
 from typing import List
-from sys import argv as argv
-from collections import defaultdict
+from collections import defaultdict, deque
 
 '''
-	recursive DFS
+	Iterative DFS
 '''
 
 class Solution:
@@ -15,19 +14,22 @@ class Solution:
 
 		seen = defaultdict(bool)
 
-		def dfs(node):
-			seen[node] = True
-			for neighbor in G[node]:
-				if not seen[neighbor]:
-					dfs(neighbor)
-
 		num_components = 0
+		stack = deque()
 		for node in range(n):
 			if not seen[node]:
 				num_components += 1
-				dfs(node)
+				stack.append(node)
+				while stack:
+					node = stack.pop()
+					for neighbor in G[node]:
+						if not seen[neighbor]:
+							stack.append(neighbor)
+					seen[node] = True
 
 		return num_components
+
+
 
 
 # argv[1]

@@ -1,5 +1,4 @@
 from typing import List
-from sys import argv as argv
 from collections import defaultdict
 
 '''
@@ -13,13 +12,14 @@ class Solution:
 				return key
 
 		parent = keydefaultdict()
-		self.num_components = n
+		num_components = n
 
 		def Union(a,b):
 			a_component, b_component = Find(a), Find(b)
 			if a_component != b_component:
 				parent[b_component] = a_component
-				self.num_components -= 1
+				nonlocal num_components
+				num_components -= 1
 
 		def Find(node):
 			if parent[node] != node:
@@ -28,7 +28,7 @@ class Solution:
 
 		for edge in edges:
 			Union(*edge)
-		return self.num_components
+		return num_components
 
 # argv[1]
 print(Solution().countComponents(4, [[2,3],[1,2],[1,3]]))

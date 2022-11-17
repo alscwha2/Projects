@@ -1,5 +1,4 @@
 from typing import List
-from sys import argv as argv
 from collections import defaultdict, deque
 
 '''

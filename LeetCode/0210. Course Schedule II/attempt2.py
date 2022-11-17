@@ -29,14 +29,6 @@ class Solution:
             return transpose
 
         def has_cycles(graph: List[List[int]], *, path=None, seen=None, next=None) -> bool:
-            """
-            :param graph:
-            :param path: for internal use only.
-            :param seen: for internal use only.
-            :param next: for internal use only.
-            :return: True if graph has cycle, else False
-            """
-
             # For initial call to has_cycles, should have no keyword arguments
             if path is None:
                 seen = set()
@@ -61,10 +53,6 @@ class Solution:
             return answer
 
         def postorder_dfs(graph: List[List[int]]) -> List[int]:
-            """
-            :param graph:
-            :return: List[int] postorder dfs traversal of graph
-            """
             traversal = []
             seen = set()
 
@@ -82,16 +70,9 @@ class Solution:
             return traversal
 
         def topological_sort(graph: List[List[int]]) -> List[int]:
-            """
-            :param graph:
-            :return: [] if graph is empty or cyclic, else List[int] topological sort of grpah nodes
-            """
             return [] if has_cycles(graph) else postorder_dfs(graph)
 
         ########################### APPLICATION LOGIC ##########################
 
         transpose = edge_list_to_adjacency_list_transpose(prerequisites)
         return topological_sort(transpose)
-
-
-print(Solution().findOrder(2, [[1, 0], [0, 1]]))

@@ -45,7 +45,7 @@ class Solution:
         def if_not_seen(solve):
             seen = []
 
-            def wrapper(dividend, divisor):
+            def solve_if_not_seen(dividend, divisor):
                 if dividend in seen:
                     return -1.0
 
@@ -53,7 +53,7 @@ class Solution:
                 answer = solve(dividend, divisor)
                 seen.pop()
                 return answer
-            return wrapper
+            return solve_if_not_seen
 
         @if_not_seen
         def solve(dividend, divisor):

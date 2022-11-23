@@ -1,5 +1,4 @@
 from collections import defaultdict
-from itertools import chain
 from typing import List
 
 '''
@@ -9,13 +8,6 @@ from typing import List
     Multiply the weights of the edges as the final answer for each query
     
     The answer is dfs with caching
-    using caching:
-        speed: O(N)
-        space(O(N*2))
-    caching increases speed for multiple queries at the cost of using a lot of space
-    if you don't use caching, you'll do a lot of re-calculation of the same paths
-        speed: O(M * N)
-        space: O(N)
     
     The one part here that wasn't intuitive was that the reverse of the edge is
         1 / value
@@ -23,7 +15,6 @@ from typing import List
 
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
-        nodes = set(chain(*equations))
         adjacency_lists = defaultdict(list)
         solved = {}
 
@@ -43,31 +34,16 @@ class Solution:
 
         load_solved_equations_and_construct_adjacency_list()
 
-        def manage_seen_stack(function):
-            seen = []
+        def solve(equation):
+            if equation in solved:
+                return solved[equation]
 
-            def wrapper(dividend, divisor):
-                if dividend in seen:
-                    return -1.0
-
-                seen.append(dividend)
-                answer = function(dividend, divisor)
-                seen.pop()
-                return answer
-            return wrapper
-
-        @manage_seen_stack
-        def solve(dividend, divisor):
-            if dividend == divisor:
-                return 1.0
-
+            dividend, divisor = equation
+            solved[equation] = -1.0
             for child in adjacency_lists[dividend]:
-                if (value := solve(child, divisor)) != -1.0:
-                    return solved[(dividend, child)] * value
+                if (value := solve((child, divisor))) != -1.0:
+                    solved[equation] = solved[(dividend, child)] * value
+                    break
+            return solved[equation]
 
-            return -1.0
-
-        return [solve(*equation) if all(node in nodes for node in equation) else -1.0 for equation in queries]
-
-
-# print(Solution())
+        return [solve(tuple(equation)) for equation in queries]

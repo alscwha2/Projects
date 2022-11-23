@@ -7,7 +7,9 @@ from typing import List
     The weights of the edges are the values
     Multiply the weights of the edges as the final answer for each query
     
-    The answer is dfs with caching
+    This uses caching, but the caching may not be the best idea. It uses space
+        and is only really useful if you expect more queries with the same 
+        divisor. Worst case scenario this will end up being O(N ** 2) space
     
     The one part here that wasn't intuitive was that the reverse of the edge is
         1 / value

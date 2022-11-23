@@ -8,9 +8,8 @@ from typing import List
     The weights of the edges are the values
     Multiply the weights of the edges as the final answer for each query
     
-    The answer is dfs with caching
     using caching:
-        speed: O(N)
+        speed: O(M * N)
         space(O(N*2))
     caching increases speed for multiple queries at the cost of using a lot of space
     if you don't use caching, you'll do a lot of re-calculation of the same paths
@@ -43,7 +42,7 @@ class Solution:
 
         load_solved_equations_and_construct_adjacency_list()
 
-        def manage_seen_stack(function):
+        def if_not_seen(solve):
             seen = []
 
             def wrapper(dividend, divisor):
@@ -51,12 +50,12 @@ class Solution:
                     return -1.0
 
                 seen.append(dividend)
-                answer = function(dividend, divisor)
+                answer = solve(dividend, divisor)
                 seen.pop()
                 return answer
             return wrapper
 
-        @manage_seen_stack
+        @if_not_seen
         def solve(dividend, divisor):
             if dividend == divisor:
                 return 1.0

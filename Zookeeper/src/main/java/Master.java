@@ -1,4 +1,11 @@
 /**
+ * The core of this code was taken from here: https://github.com/fpj/zookeeper-book-example/blob/master/src/main/java/org/apache/zookeeper/book/Client.java
+ * Code was modified and added by Aaron Schwartz-Messing for the Advanced Distributed
+ *  Systems Zookeeper Project
+ *
+ *
+ *
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information

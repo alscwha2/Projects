@@ -1,6 +1,7 @@
 # Server
 * listens for connections from client
 * creates thread running ConnectionManager to handle request
+* ConnectionManager creates a RequestHandler to process the order
 * supports maximum of 25 connections at one time
 # Server.ConnectionManager
 * Manages communication with client

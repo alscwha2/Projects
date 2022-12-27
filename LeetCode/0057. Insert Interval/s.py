@@ -1,75 +1,50 @@
+from bisect import bisect, bisect_left
 from typing import List
-from sys import argv as argv
+"""
+	* search for insertion spot
+	* search for last overlapping interval
+	* replace that slice with new interval
+	* fix the boundaries of the new interval by combining
+	* return
+	
+	cases to worry about: 
+	(=, =)
+	(>, =)
+	(=, >)
+	(>, >)
+	
+	if newInterval fits neatly in between two other intervals:
+		insertionIndex, last_overlap_index = i, i
+		therefore nothing will be deleted and it will just be inserted
+		and 
+			newInterval[beginning] = min(newInterval[beginning], intervals[insertion_index][beginning])
+			will by definition be newInterval[beginning]
+	
+	if newInterval fits entirely inside another interval:
+		insertion_index, last_overlap_index = i, i+1
+		this is because insertion_index uses bisect_left and last_overlap_index uses bisect_right
+		
+			newInterval[beginning] = min(newInterval[beginning], intervals[insertion_index][beginning])
+	
+			newInterval[end] = max(newInterval[end], intervals[last_overlap_index-1][end])
+			
+			these both will expand to encompass the original interval
+			therefore the original interval will just be replaced with itself.
+	
+	"""
 
-'''
-	The result could have:
-		more intervals:
-			if the interval I'm inserting doesn't everlap with the existing ones
-		same amount:
-			if it only overlaps with one
-		less:
-			if it overlaps with many
-
-	time:
-		easily in O(N)
-		maybe possible in log(N)?
-	space
-		can do it in constant space, since we will only use at most one more slot than we were given
-'''
 
 class Solution:
 	def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-		begin,end = newInterval
-		combined = 0
-		intervalslot = -1
+		beginning, end = 0, 1
 
-		# binary serach to find the slot that it should go in
+		insertion_index = bisect_left(intervals, newInterval[beginning], key=lambda a: a[end])
+		if insertion_index < len(intervals):
+			newInterval[beginning] = min(newInterval[beginning], intervals[insertion_index][beginning])
 
-		i, j = 0, len(nums)-1
-		while i <= j:
-			k = i + (j-i)//2
-			num = nums[k]
-			if num > begin:
-				j = k-1
-			elif num < begin:
-				i = k+1
-			else:
-				intervalslot = k
-				break
-		if intervalslot != -1:
-			intervalslot = j
+		last_overlap_index = bisect(intervals, newInterval[end], key=lambda a: a[beginning])
+		if last_overlap_index > insertion_index:
+			newInterval[end] = max(newInterval[end], intervals[last_overlap_index-1][end])
 
-
-
-		for interval, i in enumerate(intervals):
-			didcombine = False
-			if newInterval[0] <= interval[0] <= newInterval[1]:
-				newInterval[1] = max(newInterval[1], interval[1])
-				didcombine = True
-			if interval[0] <= newInterval[0] <= interval[1]:
-				newInterval[0] = min(newInterval[0], interval[0])
-				didcombine = True
-			if didcombine:
-				combined += 1
-				if combined == 1:
-					intervalslot = i
-		intervals[i] = newInterval
-		if combined == 0:
-			i,j = 0,len(nums-1)
-			while i <= j:
-				k = i + (j-1)//2
-				num = nums[k][0]
-				if num < newInterval[0]:
-					i = k+1
-				elif num > newInterval[0]:
-					j = k-1
-				else:
-					pass # shouldn't happen because we caught the overlap
-				#insert it over here
-
-		return nums[:i+1] + nums[(i+1)+(combined-1):]
-
-
-
-# argv[1]
-# print(Solution())
+		intervals[insertion_index:last_overlap_index] = [newInterval]
+		return intervals

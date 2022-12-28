@@ -30,21 +30,23 @@ from typing import List
 			
 			these both will expand to encompass the original interval
 			therefore the original interval will just be replaced with itself.
-	
 	"""
 
 
 class Solution:
 	def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-		beginning, end = 0, 1
-
-		insertion_index = bisect_left(intervals, newInterval[beginning], key=lambda a: a[end])
+		BEGINNING, END = 0, 1
+		
+		# find the indices where newInterval will be inserted, and where it will end
+		insertion_index = bisect_left(intervals, newInterval[BEGINNING], key=lambda interval: interval[END])
+		index_after_end = bisect(intervals, newInterval[END], key=lambda interval: interval[BEGINNING])
+		
+		# merge with overlapping intervals
 		if insertion_index < len(intervals):
-			newInterval[beginning] = min(newInterval[beginning], intervals[insertion_index][beginning])
-
-		last_overlap_index = bisect(intervals, newInterval[end], key=lambda a: a[beginning])
-		if last_overlap_index > insertion_index:
-			newInterval[end] = max(newInterval[end], intervals[last_overlap_index-1][end])
-
-		intervals[insertion_index:last_overlap_index] = [newInterval]
+			newInterval[BEGINNING] = min(newInterval[BEGINNING], intervals[insertion_index][BEGINNING])
+		if index_after_end > insertion_index:
+			newInterval[END] = max(newInterval[END], intervals[index_after_end-1][END])
+		
+		# replace overlapping intervals and insert newInterval
+		intervals[insertion_index:index_after_end] = [newInterval]
 		return intervals

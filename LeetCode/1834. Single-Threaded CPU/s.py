@@ -1,6 +1,7 @@
 """
 time: O(NlogN)
-space:
+space: O(N)
+todo: clean this up!
 """
 from typing import List
 import heapq

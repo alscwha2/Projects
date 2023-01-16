@@ -43,7 +43,7 @@ public class DataBase implements CanExecute
 		DataBase.wipeFiles();
 		DataBase db = new DataBase();
 		
-		File inputFile = new File(System.getProperty("user.dir") + "\\input.txt");
+		File inputFile = new File(System.getProperty("user.dir") + "//input.txt");
 		try (Scanner scanner = new Scanner(inputFile)) {
 			while (scanner.hasNextLine()) {
 				try {

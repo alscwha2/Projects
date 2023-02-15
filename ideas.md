@@ -11,3 +11,6 @@
 				* download testcases
 				* pycharm plugin to submit the code on website and print the results
 				* pycharm plugin to navigate the website maybe
+* git visualizer
+				* interactive visual branch navigator with diffs
+				* replay all edits or commits for a project from scratch so that you can see the project being created from scratch

@@ -14,10 +14,10 @@ class Solution:
         first_found = False
         second_found = False
         first = None
-        last = None
+        second = None
 
         def traverse(root):
-            nonlocal previous, first_found, first, last, second_found
+            nonlocal previous, first_found, first, second, second_found
 
             if root == None:
                 return
@@ -31,17 +31,17 @@ class Solution:
 
             if root.val < previous.val:
                 if first_found:
-                    last = root
+                    second = root
                     second_found = True
                     return
                 else:
                     first = previous
-                    last = root
+                    second = root
                     first_found = True
             previous = root
-
+            
             traverse(root.right)
 
         traverse(root)
-        first.val, last.val = last.val, first.val
+        first.val, second.val = second.val, first.val
 

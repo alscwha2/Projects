@@ -8,18 +8,17 @@ def __iter__(self):
 
     class ln_iter:
         def __init__(self, node):
-            self.node = ListNode(val=None)
-            self.node.next = node
+            self.node = node
 
         def _iter_(self):
             return self
             
         def __next__(self):
-            next = self.node.next
-            if self.node.next == None:
+            if self.node == None:
                 raise StopIteration
-            self.node = next
-            return self.node.val
+            value = self.node.val
+            self.node = self.node.next
+            return value
 
     return ln_iter(self)
 
@@ -27,14 +26,16 @@ ListNode.__iter__ = __iter__
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        overflow = 0
         sum_list = ListNode(val="sentinel")
+
         current = sum_list
+        overflow = 0
         for pair in zip_longest(l1, l2, fillvalue=0):
         	tens, ones = divmod(sum(pair) + overflow, 10)
         	current.next = ListNode(ones)
         	current = current.next
         	overflow = tens
+
         if overflow:
             current.next = ListNode(overflow)
         return sum_list.next

@@ -1,6 +1,10 @@
 '''
 	ListNode should be iterable! That is the python way of doing it!
 	Too bad, this isn't going to work on leetcode.
+
+    Update: this actually does work on LeetCode. Also, this solution is flawed.
+    The issue is that Zip only zips until the first list runs out. So we end up 
+    cutting off the end of the longer list. You're going to want to use ZipLongest.
 '''
 
 

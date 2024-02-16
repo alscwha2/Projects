@@ -3,7 +3,7 @@ Solution using itertools.
 """
 
 
-from itertools import cycle
+from itertools import cycle, chain
 
 
 class Solution:
@@ -12,7 +12,7 @@ class Solution:
         row_cycle = cycle(rows + rows[numRows - 2: 0: -1])
         for char in s:
             next(row_cycle).append(char)
-        return "".join(["".join(row) for row in rows])
+        return ''.join(chain(*rows))
 
 
 print(Solution().convert("PAYPALISHIRING", 3))

@@ -1,6 +1,13 @@
 from typing import List
 from sys import argv as argv
 
+'''
+    First count how many closers are in the string.
+    Once you know that, now you can iterate through the string and be responsible
+        to only keep the openers for which there is a sufficient number of closers
+        to close them.
+'''
+
 class Solution:
 	def minRemoveToMakeValid(self, s: str) -> str:
 		close = s.count(')')

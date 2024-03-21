@@ -3,7 +3,9 @@ from typing import List
     This code works, but it times out on larger inputs.
     Maybe because I'm doing it recursively?
 
-    Maybe an optimization could be to go from both ends at once.
+    Maybe an optimization could be to go from both ends at once?
+
+    The hint said to use DP. Still trying to figure out how to do that.
 '''
 
 

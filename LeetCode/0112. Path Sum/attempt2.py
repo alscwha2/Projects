@@ -9,17 +9,14 @@ class Solution:
         if not root:
             return False
 
-        total = 0
-        def dfs(node):
-            nonlocal total
+        def dfs(node, total):
             total += node.val
             if not node.left and not node.right:
                 if total == targetSum:
                     return True
-            if node.left and dfs(node.left):
+            if node.left and dfs(node.left, total):
                 return True
-            if node.right and dfs(node.right):
+            if node.right and dfs(node.right, total):
                 return True
-            total -= node.val
             return False
-        return dfs(root)
+        return dfs(root, 0)

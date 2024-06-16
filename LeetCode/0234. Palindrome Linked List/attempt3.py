@@ -1,8 +1,11 @@
 from typing import List
+"""
+    The LeetCode people recommend this. This is very fast and uses no extra memory,
+        but it also destroys the list...
 
+    The next solution is a more elegant version of this one that I got off of someone one LC
 """
-    FIX THIS 
-"""
+
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -16,22 +19,24 @@ class Solution:
 
         slow = fast = head
         prev = None
-        while fast.next and fast.next.next:
-            fast = fast.next.next
+        is_even = False
+        while fast.next:
+            fast = fast.next
+            if fast.next:
+                fast = fast.next
+            else:
+                is_even = True
+            temp = slow
+            slow = slow.next
+            temp.next = prev
+            prev = temp
 
-            temp = slow.next
-            slow.next = prev
-            prev = slow
-            slow = temp
-            # slow, slow.next = slow.next, prev
+        if not is_even:
+            slow = slow.next
 
         while prev and slow:
-            print(prev, slow)
             if prev.val != slow.val:
                 return False
             prev = prev.next
             slow = slow.next
-        if prev or slow:
-            return False
         return True
-
